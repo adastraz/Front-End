@@ -5,7 +5,16 @@ import {
   } from '../actions'
 
   const initialState = {
-    isLoading: false
+    isLoading: false,
+    username:'',
+    password:'',
+    user_type: 0,
+    employee: {
+
+    },
+    employer:{
+
+    }
 }
 
 export const reducer = (state = initalState, action) => {
@@ -14,3 +23,4 @@ export const reducer = (state = initalState, action) => {
             return state
     }
 }
+

@@ -5,7 +5,7 @@ export const FETCHING_FAILURE = 'FETCHING_FAILURE';
 
 export const fetchApi = () => {
     dispatch({ type: FETCHING_ACTIVITY_START })
-    axios.get()
+    axios.get('https://shrouded-taiga-50423.herokuapp.com/')
         .then(res => {
             console.log('Response', res)
            
