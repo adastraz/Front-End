@@ -8,12 +8,18 @@ import {
     isLoading: false,
     username:'',
     password:'',
-    user_type: 0,
+    user_type: null,
     employee: {
-
+        first_name: '',
+        last_name: '',
+        occupation: '',
+        experience: '',
+        interest: ''
     },
     employer:{
-
+        company_name: '',
+        description:'',
+        jobs:[]
     }
 }
 
