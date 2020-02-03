@@ -1,14 +1,20 @@
 import React from 'react';
-import Welcome from "./components/Welcome.js";
-import SignUp from "./components/SignUp.js";
-
+import {BrowserRouter as Router, Link, Switch } from 'react-router-dom'
+import Welcome from './components/Welcome'
+import SignUp from './components/SignUp'
+import SignIn from './components/SignIn'
 
 function App() {
   return (
-    <div className="App">
-      {/* <Welcome/> */}
-      <SignUp/>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path='signup' component={SignUp} />
+          <Route path='/signin' component={SignIn} />
+          <Route path='/' component={Welcome} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
