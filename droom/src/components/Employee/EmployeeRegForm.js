@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
+import {connect} from 'react-redux'
+import {newEmployee} from '../../actions'
 
-const EmployeeRegForm = () => {
-
+const EmployeeRegForm = props => {
 
     const [employeeUser, setEmployeeUser] = useState({
         name: "",
@@ -25,7 +26,7 @@ const EmployeeRegForm = () => {
     const submitForm = e => {
         e.preventDefault();
         console.log("User to submit: ", employeeUser);
-        
+        props.newEmployee({...employeeUser, ...props.location.state})
         //react 2 handle posting/etc
     }
 
@@ -69,4 +70,12 @@ const EmployeeRegForm = () => {
     )
 }
 
-export default EmployeeRegForm
+const mapStateToProps = state => {
+    return {
+        isLoading: state.isLoading,
+        user: state.user,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps, {newEmployee})(EmployeeRegForm)
