@@ -7,7 +7,7 @@ function SignUp(props) {
     const [user, setUser] = useState({
         username: '',
         password: '',
-        usertype: true
+        user_type: false
     });
 
     //handle any changes made to inputs username/password in the form
@@ -55,11 +55,11 @@ function SignUp(props) {
                 value={user.password}
             />
 
-            <label htmlFor="usertype">Are you looking for a job?</label>
+            <label htmlFor="user_type">Are you looking for a job?</label>
             <input
-                id="usertype"
+                id="user_type"
                 type="checkbox"
-                name="usertype"
+                name="user_type"
                 onChange={handleCheckboxChanges}
                 checked={user.usertype}
             />
@@ -67,7 +67,7 @@ function SignUp(props) {
             <button 
                 type="submit"
                 onClick={() => 
-                    user.usertype ? props.history.push('/employeereg', user) : props.history.push('/employerreg', user)}>
+                    user.usertype ? props.history.push('/employerreg', user) : props.history.push('/employeereg', user)}>
                 Sign Up</button>
         </form>
 

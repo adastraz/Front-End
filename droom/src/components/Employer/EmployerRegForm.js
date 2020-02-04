@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {connect} from 'react-router-dom'
+import {connect} from 'react-redux'
 import {newEmployer} from '../../actions'
 
 const EmployerRegForm = props => {
