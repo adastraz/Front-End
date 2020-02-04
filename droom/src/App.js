@@ -7,6 +7,7 @@ import EmployerRegForm from './components/Employer/EmployerRegForm'
 import EmployeeRegForm from './components/Employee/EmployeeRegForm'
 import history from './utils/history'
 
+
 function App() {
   return (
     <Router history={history}>

@@ -67,7 +67,7 @@ function SignUp(props) {
             <button 
                 type="submit"
                 onClick={() => 
-                    user.usertype ? props.history.push('/testing', user) : props.history.push('/test', user)}>
+                    user.usertype ? props.history.push('/employerreg', user) : props.history.push('/employeereg', user)}>
                 Sign Up</button>
         </form>
 
