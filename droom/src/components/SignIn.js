@@ -34,7 +34,6 @@ function SignIn(props) {
     const submitForm = e => {
         e.preventDefault();
         console.log("User to submit: ", user);
-        props.history.push('/itworks')
         props.login(user)
         //react 2 handle posting/etc
     }

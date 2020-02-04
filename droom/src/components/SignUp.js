@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
-import {newMember} from '../actions'
+import {newEmployee} from '../actions'
 
 function SignUp(props) {
-    console.log(props.history)
 
     const [user, setUser] = useState({
         username: '',
@@ -34,7 +33,7 @@ function SignUp(props) {
     //on submit
     const submitForm = e => {
         e.preventDefault();
-        props.newMember(user)
+        props.newEmployee(user)
     }
 
     return (
@@ -85,4 +84,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {newMember})(SignUp)
+export default connect(mapStateToProps, {newEmployee})(SignUp)
