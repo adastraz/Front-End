@@ -1,42 +1,42 @@
 import {
     FETCHING_START,
-    FETCHING_SUCCESS,
-    FETCHING_FAILURE,
-    NEW_JOBSEEKER,
-    NEW_COMPANY,
-    NEW_USER,
+    FETCHING_ERROR,
+    NEW_EMPLOYEE,
+    NEW_EMPLOYER,
     LOGIN
   } from '../actions'
 
   const initialState = {
     isLoading: false,
     user: {},
-    company:{},
-    jobseeker:{},
     error: null
 }
 
 export const reducer = (state = initialState, action) => {
     switch(action.type){
-        case NEW_USER:
+        case FETCHING_START:
             return {
                 ...state,
-                user: action.payload
+                isLoading: true,
+                error: null
             }
-        case NEW_JOBSEEKER:
-            return {
-                ...state,
-                jobseeker: [...state.user, ...action.payload]
-            }
-        case NEW_COMPANY:
+        case FETCHING_ERROR:
             return{
                 ...state,
-                company:[...state.user, ...action.payload]
+                error: action.payload,
+                isLoading: false
+            }
+        case NEW_EMPLOYER:
+            return {
+                ...state,
+                user: action.payload,
+                isLoading: false
             }
         case LOGIN: 
         return{
             ...state,
-            user: action.payload
+            user: action.payload,
+            isLoading: false
         }
         default:
             return state

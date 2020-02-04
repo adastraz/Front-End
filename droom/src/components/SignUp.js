@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {newMember} from '../actions'
 
 function SignUp(props) {
-
+    console.log(props.history)
 
     const [user, setUser] = useState({
         username: '',
@@ -69,7 +69,7 @@ function SignUp(props) {
             <button 
                 type="submit"
                 onClick={() => 
-                    user.usertype ? props.history.push('/testing') : props.history.push('/test')}>
+                    user.usertype ? props.history.push('/testing', user) : props.history.push('/test', user)}>
                 Sign Up</button>
 
         </form>
