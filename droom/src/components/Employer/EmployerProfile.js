@@ -1,8 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-        // "company_name": "Apple Inc.",
-        // "description": "Creating the best products for you"
+// company_name: "Some Company", // string (required), must be unique
+// description: "This is a placeholding company" // string (required)
+// industry: "", // string (optional)
+// mission_statement: "", //string (optional)
+// imgUrl: "" // string (optional),
+// openPositions: "" // string (optional)
 
 const EmployerProfile = props => {
     console.log(props.user)
