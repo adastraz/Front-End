@@ -12,19 +12,18 @@ const EmployeeRegForm = () => {
 
 
     //handle any changes made to inputs in the form
-    const handleChanges = event => {
+    const handleChanges = e => {
         console.log("User: ", employeeUser);
         setEmployeeUser({
             ...employeeUser,
-            [event.target.name]: event.target.value
+            [e.target.name]: e.target.value
         });
     };
 
 
     //on submit
-    const submitForm = event => {
-        event.preventDefault();
-        setEmployeeUser({name: "", industry: "", experience: "", imgUrl: ""});
+    const submitForm = e => {
+        e.preventDefault();
         console.log("User to submit: ", employeeUser);
         
         //react 2 handle posting/etc

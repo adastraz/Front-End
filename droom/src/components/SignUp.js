@@ -33,7 +33,6 @@ function SignUp(props) {
     //on submit
     const submitForm = e => {
         e.preventDefault();
-        props.newEmployee(user)
     }
 
     return (
