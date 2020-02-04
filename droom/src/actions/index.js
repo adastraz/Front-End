@@ -9,9 +9,11 @@ export const NEW_EMPLOYER = 'NEW_EMPLOYER';
 
 export const newEmployee = (thing) => dispatch => {
     dispatch({ type: FETCHING_START })
-    axios.post('https://dry-mesa-00229.herokuapp.com/api/register', thing)
+    console.log(thing)
+    axios.post('https://dry-mesa-00229.herokuapp.com/api/register/user', thing)
         .then(res => {
             dispatch ({ type: NEW_EMPLOYEE, payload: res.data })
+            history.push('/')
             console.log('Response', res.data)
         })
         .catch(err => {
@@ -24,6 +26,7 @@ export const newEmployer = (thing) => dispatch => {
     axios.post('https://dry-mesa-00229.herokuapp.com/api/register', thing)
         .then(res => {
             dispatch ({ type: NEW_EMPLOYER, payload: res.data })
+            history.push('/')
             console.log('Response', res.data)
         })
         .catch(err => {
@@ -37,7 +40,7 @@ export const newEmployer = (thing) => dispatch => {
         .then(res => {
             dispatch({ type: LOGIN, payload: res.data})
             localStorage.setItem('token', res.data)
-            history.push('/itworks')
+            history.push('/')
             console.log('Login response', res.data)
         })
         .catch(err => {

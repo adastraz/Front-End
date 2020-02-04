@@ -56,14 +56,6 @@ function SignIn(props) {
                 onChange={handleChanges}
                 value={user.password}
             />
-             <label htmlFor="usertype">Are you an employer?</label>
-            <input
-                id="usertype"
-                type="checkbox"
-                name="usertype"
-                onChange={handleCheckboxChanges}
-                checked={user.usertype}
-            />
             <button type="submit">Sign In</button>
             <Link to='/signup' >I don't have an account</Link> 
         </form>

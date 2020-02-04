@@ -4,14 +4,17 @@ import Welcome from './components/Welcome'
 import SignUp from './components/SignUp'
 import SignIn from './components/SignIn'
 import EmployerRegForm from './components/Employer/EmployerRegForm'
+import EmployeeRegForm from './components/Employee/EmployeeRegForm'
 import history from './utils/history'
+
 
 function App() {
   return (
     <Router history={history}>
       <div className="App">
         <Switch>
-          <Route path='/testing' component={EmployerRegForm} />
+          <Route path='/employeereg' component={EmployeeRegForm} />
+          <Route path='/employerreg' component={EmployerRegForm} />
           <Route path='/signup' component={SignUp} />
           <Route path='/signin' component={SignIn} />
           <Route path='/' component={Welcome} />
