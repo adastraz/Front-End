@@ -5,7 +5,11 @@ const EmployerRegForm = () => {
 
     const [employerUser, setEmployerUser] = useState({
         company_name: "",
-        description: ""
+        description: "",
+        industry: "",
+        mission_statement: "",
+        imgUrl: "",
+        openPositions: ""
     });
 
 
@@ -45,6 +49,38 @@ const EmployerRegForm = () => {
                 name="description"
                 onChange={handleChanges}
                 value={employerUser.description}
+            />
+            <label htmlFor="industry">Industry: </label>
+            <input 
+                id="industry"
+                type="text"
+                name="industry"
+                onChange={handleChanges}
+                value={employerUser.industry}
+            />
+            <label htmlFor="missionStatement">Mission Statement: </label>
+            <input 
+                id="missionStatement"
+                type="text"
+                name="mission_statement"
+                onChange={handleChanges}
+                value={employerUser.mission_statement}
+            />
+            <label htmlFor="imgUrl">Image: </label>
+            <input 
+                id="imgUrl"
+                type="text"
+                name="imgUrl"
+                onChange={handleChanges}
+                value={employerUser.imgUrl}
+            />
+            <label htmlFor="openPositions">Open Positions: </label>
+            <input 
+                id="openPositions"
+                type="text"
+                name="openPositions"
+                onChange={handleChanges}
+                value={employerUser.openPositions}
             />
             <button type="submit">Create Account</button>
         </form>
