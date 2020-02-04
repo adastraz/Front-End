@@ -7,8 +7,7 @@ function SignIn(props) {
 
     const [user, setUser] = useState({
         username: '',
-        password: '',
-        usertype: false
+        password: ''
     });
 
     //handle any changes made to inputs username/password in the form

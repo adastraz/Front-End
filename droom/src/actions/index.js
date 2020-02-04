@@ -13,7 +13,7 @@ export const newEmployee = (thing) => dispatch => {
     axios.post('https://dry-mesa-00229.herokuapp.com/api/register/user', thing)
         .then(res => {
             dispatch ({ type: NEW_EMPLOYEE, payload: res.data })
-            history.push('/')
+            history.push(`/users/${res.data.id}`)
             console.log('Response', res.data)
         })
         .catch(err => {
@@ -26,7 +26,7 @@ export const newEmployer = (thing) => dispatch => {
     axios.post('https://dry-mesa-00229.herokuapp.com/api/register', thing)
         .then(res => {
             dispatch ({ type: NEW_EMPLOYER, payload: res.data })
-            history.push('/')
+            history.push(`/companies/${res.data.id}`)
             console.log('Response', res.data)
         })
         .catch(err => {
@@ -36,11 +36,11 @@ export const newEmployer = (thing) => dispatch => {
 }
  export const login = (thing) => dispatch => {
      dispatch ({ type: FETCHING_START })
-     axios.post('https://droom3.herokuapp.com/employer/auth/droom/api/login', thing)
+     axios.post('https://dry-mesa-00229.herokuapp.com/api/login', thing)
         .then(res => {
             dispatch({ type: LOGIN, payload: res.data})
-            localStorage.setItem('token', res.data)
-            history.push('/')
+            localStorage.setItem('token', res.data.token)
+            res.data.user.user_type ? history.push(`/users/${res.data.user.id}`) : history.push(`/companies/${res.data.company.id}`)
             console.log('Login response', res.data)
         })
         .catch(err => {
