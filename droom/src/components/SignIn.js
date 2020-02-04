@@ -1,11 +1,14 @@
 import React, {useState} from "react";
+import {connect} from 'react-redux'
+import {login} from '../actions'
+
 
 function SignIn(props) {
-
 
     const [user, setUser] = useState({
         username: '',
         password: '',
+        usertype: false
     });
 
     //handle any changes made to inputs username/password in the form
@@ -17,13 +20,22 @@ function SignIn(props) {
         });
     };
 
+    //handle changes made to employer checkbox in the form
+    const handleCheckboxChanges = event => {
+        console.log("User: ", user);
+
+        setUser({
+            ...user,
+            [event.target.name]: event.target.checked
+        });
+    }
 
     //on submit
-    const submitForm = event => {
-        event.preventDefault();
+    const submitForm = e => {
+        e.preventDefault();
         console.log("User to submit: ", user);
-        setUser({username:  "", password: ""})
-
+        props.history.push('/itworks')
+        props.login(user)
         //react 2 handle posting/etc
     }
 
@@ -37,7 +49,6 @@ function SignIn(props) {
                 onChange={handleChanges}
                 value={user.username}
             />
-
             <label htmlFor="password">Password: </label>
             <input 
                 id="password"
@@ -46,14 +57,25 @@ function SignIn(props) {
                 onChange={handleChanges}
                 value={user.password}
             />
-
+             <label htmlFor="usertype">Are you an employer?</label>
+            <input
+                id="usertype"
+                type="checkbox"
+                name="usertype"
+                onChange={handleCheckboxChanges}
+                checked={user.usertype}
+            />
             <button type="submit">Sign In</button>
-
         </form>
-
     );
-
-
 }
 
-export default SignIn
+const mapStateToProps = state => {
+    return {
+        isLoading: state.isLoading,
+        user: state.user,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps, {login})(SignIn)
