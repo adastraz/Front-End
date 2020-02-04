@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
 import {login} from '../actions'
-
+import {Link} from 'react-router-dom'
 
 function SignIn(props) {
 
@@ -34,7 +34,6 @@ function SignIn(props) {
     const submitForm = e => {
         e.preventDefault();
         console.log("User to submit: ", user);
-        props.history.push('/itworks')
         props.login(user)
         //react 2 handle posting/etc
     }
@@ -66,6 +65,7 @@ function SignIn(props) {
                 checked={user.usertype}
             />
             <button type="submit">Sign In</button>
+            <Link to='/signup' >I don't have an account</Link> 
         </form>
     );
 }

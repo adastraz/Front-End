@@ -13,6 +13,7 @@ import {
 }
 
 export const reducer = (state = initialState, action) => {
+    console.log("action.type: " + action.type);
     switch(action.type){
         case FETCHING_START:
             return {
@@ -32,11 +33,17 @@ export const reducer = (state = initialState, action) => {
                 user: action.payload,
                 isLoading: false
             }
+        case NEW_EMPLOYEE:
+            return {
+                ...state,
+                user: action.payload,
+                isLoading: false
+                }
         case LOGIN: 
         return{
             ...state,
             user: action.payload,
-            isLoading: false
+            isLoading: false, 
         }
         default:
             return state
