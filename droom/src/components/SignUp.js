@@ -1,12 +1,14 @@
 import React, {useState} from "react";
+import {connect} from 'react-redux'
+import {newMember} from '../actions'
 
-function SignUp() {
-
+function SignUp(props) {
+    console.log(props.history)
 
     const [user, setUser] = useState({
         username: '',
         password: '',
-        employer: false
+        usertype: false
     });
 
     //handle any changes made to inputs username/password in the form
@@ -30,12 +32,9 @@ function SignUp() {
 
 
     //on submit
-    const submitForm = event => {
-        event.preventDefault();
-        console.log("User to submit: ", user);
-        setUser({username:  "", password: "", employer: false})
-
-        //react 2 handle posting/etc
+    const submitForm = e => {
+        e.preventDefault();
+        props.newMember(user)
     }
 
     return (
@@ -58,20 +57,33 @@ function SignUp() {
                 value={user.password}
             />
 
-            <label htmlFor="employer">Are you an employer?</label>
+            <label htmlFor="usertype">Are you an employer?</label>
             <input
-                id="employer"
+                id="usertype"
                 type="checkbox"
-                name="employer"
+                name="usertype"
                 onChange={handleCheckboxChanges}
-                checked={user.employer}
+                checked={user.usertype}
             />
             
-            <button type="submit">Sign Up</button>
+            <button 
+                type="submit"
+                onClick={() => 
+                    user.usertype ? props.history.push('/testing', user) : props.history.push('/test', user)}>
+                Sign Up</button>
+
 
         </form>
 
     );
 }
 
-export default SignUp
+const mapStateToProps = state => {
+    return {
+        isLoading: state.isLoading,
+        user: state.user,
+        error:state.error
+    }
+}
+
+export default connect(mapStateToProps, {newMember})(SignUp)
