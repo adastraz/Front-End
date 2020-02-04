@@ -2,20 +2,21 @@ import {
     FETCHING_START,
     FETCHING_SUCCESS,
     FETCHING_FAILURE
+    NEW_USER
   } from '../actions'
 
   const initialState = {
     isLoading: false,
-    user:{},
+    user: {},
     error: null
 }
 
 export const reducer = (state = initialState, action) => {
     switch(action.type){
-        case FETCHING_START:
+        case NEW_USER:
             return {
                 ...state,
-                isLoading: true
+                user: action.payload
             }
         default:
             return state

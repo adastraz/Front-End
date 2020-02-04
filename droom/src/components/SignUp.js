@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
 import {newUser} from './actions'
+import EmployerRegForm from './Employer/EmployerRegForm'
 
 function SignUp(props) {
 
@@ -8,7 +9,7 @@ function SignUp(props) {
     const [user, setUser] = useState({
         username: '',
         password: '',
-        employer: false
+        usertype: false
     });
 
     //handle any changes made to inputs username/password in the form
@@ -57,16 +58,20 @@ function SignUp(props) {
                 value={user.password}
             />
 
-            <label htmlFor="employer">Are you an employer?</label>
+            <label htmlFor="usertype">Are you an employer?</label>
             <input
-                id="employer"
+                id="usertype"
                 type="checkbox"
-                name="employer"
+                name="usertype"
                 onChange={handleCheckboxChanges}
-                checked={user.employer}
+                checked={user.usertype}
             />
             
-            <button type="submit">Sign Up</button>
+            <button 
+                type="submit"
+                onClick={() => 
+                    user.usertype ? props.history.push('/testing') : props.history.push('/test')}
+            >Sign Up</button>
 
         </form>
 
