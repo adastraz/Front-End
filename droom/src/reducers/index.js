@@ -6,25 +6,17 @@ import {
 
   const initialState = {
     isLoading: false,
-    username:'',
-    password:'',
-    user_type: null,
-    employee: {
-        first_name: '',
-        last_name: '',
-        occupation: '',
-        experience: '',
-        interest: ''
-    },
-    employer:{
-        company_name: '',
-        description:'',
-        jobs:[]
-    }
+    user:{},
+    error: null
 }
 
 export const reducer = (state = initialState, action) => {
     switch(action.type){
+        case FETCHING_START:
+            return {
+                ...state,
+                isLoading: true
+            }
         default:
             return state
     }

@@ -1,6 +1,8 @@
 import React, {useState} from "react";
+import {connect} from 'react-redux'
+import {newUser} from './actions'
 
-function SignUp() {
+function SignUp(props) {
 
 
     const [user, setUser] = useState({
@@ -30,12 +32,9 @@ function SignUp() {
 
 
     //on submit
-    const submitForm = event => {
-        event.preventDefault();
-        console.log("User to submit: ", user);
-        setUser({username:  "", password: "", employer: false})
-
-        //react 2 handle posting/etc
+    const submitForm = e => {
+        e.preventDefault();
+        props.newUser(user)
     }
 
     return (
@@ -74,4 +73,12 @@ function SignUp() {
     );
 }
 
-export default SignUp
+const mapStateToProps = state => {
+    return {
+        isLoading: state.isLoading,
+        user: state.user,
+        error:state.error
+    }
+}
+
+export default connect(mapStateToProps, {newUser})(SignUp)
