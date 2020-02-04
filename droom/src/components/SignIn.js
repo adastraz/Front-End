@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
 import {login} from '../actions'
-
+import {Link} from 'react-router-dom'
 
 function SignIn(props) {
 
@@ -65,6 +65,7 @@ function SignIn(props) {
                 checked={user.usertype}
             />
             <button type="submit">Sign In</button>
+            <Link to='/signup' >I don't have an account</Link> 
         </form>
     );
 }
