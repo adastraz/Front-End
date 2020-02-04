@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
-import {newUser} from './actions'
-import EmployerRegForm from './Employer/EmployerRegForm'
+import {newMember} from '../actions'
 
 function SignUp(props) {
 
@@ -35,7 +34,7 @@ function SignUp(props) {
     //on submit
     const submitForm = e => {
         e.preventDefault();
-        props.newUser(user)
+        props.newMember(user)
     }
 
     return (
@@ -70,8 +69,8 @@ function SignUp(props) {
             <button 
                 type="submit"
                 onClick={() => 
-                    user.usertype ? props.history.push('/testing') : props.history.push('/test')}
-            >Sign Up</button>
+                    user.usertype ? props.history.push('/testing') : props.history.push('/test')}>
+                Sign Up</button>
 
         </form>
 
@@ -86,4 +85,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {newUser})(SignUp)
+export default connect(mapStateToProps, {newMember})(SignUp)

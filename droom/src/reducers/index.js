@@ -1,7 +1,7 @@
 import {
     FETCHING_START,
     FETCHING_SUCCESS,
-    FETCHING_FAILURE
+    FETCHING_FAILURE,
     NEW_USER
   } from '../actions'
 

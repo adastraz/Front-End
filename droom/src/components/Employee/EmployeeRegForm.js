@@ -2,9 +2,9 @@
 
 import React from 'react'
 
-const EmployerRegForm = props => {
+const EmployerRegForm = () => {
     return (
-        <h1>{props.user.username}</h1>
+        <h1>HELLO</h1>
     )
 }
 
