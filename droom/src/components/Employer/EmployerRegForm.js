@@ -2,9 +2,10 @@
 
 import React from 'react'
 
-const EmployerRegForm = () => {
+const EmployerRegForm = (props) => {
+    console.log('location', props.location)
     return (
-        <h1>HELLO</h1>
+        <>{props.location.state.username}</>
     )
 }
 
