@@ -70,8 +70,6 @@ function SignUp(props) {
                 onClick={() => 
                     user.usertype ? props.history.push('/testing', user) : props.history.push('/test', user)}>
                 Sign Up</button>
-
-
         </form>
 
     );
