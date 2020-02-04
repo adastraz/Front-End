@@ -1,12 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-//         "user_id": 1,
-//         "first_name": "Jonathan",
-//         "last_name": "Chen",
-//         "occupation": "Student",
-//         "experience": "Years of Java programming",
-//         "interest": "Coding, cooking, backpacking"
+// name: "Test User",
+// experience: "",
+// industry: "",
+// imgUrl: "
 
 const EmployeeProfile = props => {
     console.log(props.user)

@@ -23,7 +23,7 @@ export const newEmployee = (thing) => dispatch => {
 }
 export const newEmployer = (thing) => dispatch => {
     dispatch({ type: FETCHING_START })
-    axios.post('https://dry-mesa-00229.herokuapp.com/api/register', thing)
+    axios.post('https://dry-mesa-00229.herokuapp.com/api/register/company', thing)
         .then(res => {
             dispatch ({ type: NEW_EMPLOYER, payload: res.data })
             history.push(`/companies/${res.data.id}`)
