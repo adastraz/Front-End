@@ -3,8 +3,8 @@ export const FETCHING_START = 'FETCHING_START';
 export const FETCHING_SUCCESS = 'FETCHING_SUCCESS';
 export const FETCHING_FAILURE = 'FETCHING_FAILURE';
 
-export const fetchApi = () => {
-    dispatch({ type: FETCHING_ACTIVITY_START })
+export const fetchApi = () => dispatch => {
+    dispatch({ type: FETCHING_START })
     axios.get('https://shrouded-taiga-50423.herokuapp.com/')
         .then(res => {
             console.log('Response', res)
