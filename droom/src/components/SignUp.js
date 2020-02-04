@@ -71,6 +71,7 @@ function SignUp(props) {
                     user.usertype ? props.history.push('/testing', user) : props.history.push('/test', user)}>
                 Sign Up</button>
 
+
         </form>
 
     );
@@ -84,4 +85,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {newEmployee})(SignUp)
+export default connect(mapStateToProps, {})(SignUp)
+
