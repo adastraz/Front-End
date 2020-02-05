@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react' 
+import React, {useEffect} from 'react' 
 import {connect} from 'react-redux'
 import {fetchUserArray} from '../../actions'
+import EmployeeCard from '../Employee/EmployeeCard'
 
 const EmployerList = props => {
     useEffect(() => {
@@ -9,7 +10,9 @@ const EmployerList = props => {
     console.log(props.array)
     return(
         <>
-
+            {props.array.map(item => {
+                return <EmployeeCard key={item.id} item={item} />
+            })}
         </>
     )
 }
