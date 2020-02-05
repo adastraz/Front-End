@@ -9,12 +9,14 @@ import EmployeeProfile from './components/Employee/EmployeeProfile'
 //import EmployeeProfile from './components/Employer/EmployerProfile'
 import history from './utils/history'
 import EmployerProfile from './components/Employer/EmployerProfile';
+import Header from './components/Header';
 
 
 function App() {
   return (
     <Router history={history}>
       <div className="App">
+        <Header/>
         <Switch>
           <Route path='/company/:companyid' component={EmployerProfile} /> {/*Private*/}
           <Route path='/user/:userid' component={EmployeeProfile} /> {/*Private*/}
