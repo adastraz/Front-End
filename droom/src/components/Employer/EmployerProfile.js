@@ -9,10 +9,9 @@ import {connect} from 'react-redux'
 // openPositions: "" // string (optional)
 
 const EmployerProfile = props => {
-    console.log(props.user)
     return (
         <>
-        
+            
         </>
     )
 }
