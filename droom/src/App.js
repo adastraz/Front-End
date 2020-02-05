@@ -7,6 +7,7 @@ import EmployerRegForm from './components/Employer/EmployerRegForm'
 import EmployeeRegForm from './components/Employee/EmployeeRegForm'
 import EmployeeProfile from './components/Employee/EmployeeProfile'
 import EmployerProfile from './components/Employer/EmployerProfile'
+import EmployerList from './components/Employer/EmployerList'
 import history from './utils/history'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Router history={history}>
       <div className="App">
         <Switch>
+          <Route path='/list' component={EmployerList} /> {/*Private*/}
           <Route path='/companies/:id' component={EmployerProfile} /> {/*Private*/}
           <Route path='/users/:id' component={EmployeeProfile} /> {/*Private*/}
           <Route path='/employeereg' component={EmployeeRegForm} />

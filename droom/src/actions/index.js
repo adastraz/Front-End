@@ -1,5 +1,6 @@
 import axios from 'axios'
 import history from '../utils/history'
+import axiosWithAuth from '../utils/axiosWithAuth'
 export const FETCHING_START = 'FETCHING_START';
 export const FETCHING_ERROR = 'FETCHING_ERROR';
 export const NEW_EMPLOYEE = 'NEW_EMPLOYEE';
@@ -11,6 +12,12 @@ export const FETCHING_COMPANY_SUCCESS = 'FETCHING_COMPANY_SUCCESS'
 export const FETCHING_USER_SUCCESS = 'FETCHING_USER_SUCCESS'
 export const FETCHING_USER = 'FETCHING_USER'
 export const FETCHING_COMPANY = 'FETCHING_COMPANY'
+export const FETCHING_COMPANYARRAY = 'FETCHING_COMPANYARRAY'
+export const FETCHING_COMPANYARRAY_SUCCESS = 'FETCHING_COMPANYARRAY_SUCCESS'
+export const FETCHING_USERARRAY_SUCCESS = 'FETCHING_USERARRAY_SUCCESS'
+export const FETCHING_USERARRAY = 'FETCHING_USERARRAY'
+export const FETCHING_COMPANYARRAY_FAILURE = 'FETCHING_COMPANYARRAY_FAILURE'
+export const FETCHING_USERARRAY_FAILURE = 'FETCHING_USERARRAY_FAILURE'
 
 export const newEmployee = (thing) => dispatch => {
     dispatch({ type: FETCHING_START })
@@ -65,7 +72,7 @@ export const newEmployer = (thing) => dispatch => {
 
 export const fetchCompany= (company) => dispatch => {
     dispatch({ type: FETCHING_COMPANY})
-    axios.get(`https://dry-mesa-00229.herokuapp.com/api/users/${company.id}`)
+    axios.get(`https://dry-mesa-00229.herokuapp.com/api/companies/${company.id}`)
         .then(res => {
             console.log(res)
             dispatch({ type: FETCHING_COMPANY_SUCCESS, payload: res.data})
@@ -73,4 +80,29 @@ export const fetchCompany= (company) => dispatch => {
         .catch(err => {
             dispatch ({ type: FETCHING_COMPANY_FAILURE, payload: err.response})
         })
+}
+
+export const fetchCompanyArray = () => dispatch => {
+    dispatch({ type: FETCHING_COMPANYARRAY})
+    axios.get(`https://dry-mesa-00229.herokuapp.com/api/companies`)
+        .then(res => {
+            console.log(res)
+            dispatch({ type: FETCHING_COMPANYARRAY_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            dispatch ({ type: FETCHING_COMPANYARRAY_FAILURE, payload: err.response})
+        })
+}
+
+export const fetchUserArray = () => dispatch => {
+    dispatch({ type: FETCHING_USERARRAY})
+    axiosWithAuth()
+        .get(`/api/users`)
+            .then(res => {
+                console.log(res)
+                dispatch({ type: FETCHING_USERARRAY_SUCCESS, payload: res.data})
+            })
+            .catch(err => {
+                dispatch ({ type: FETCHING_USERARRAY_FAILURE, payload: err.response})
+            })
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-export const axiosWithAuth = () => {
+const axiosWithAuth = () => {
     return axios.create({
         //config object
         baseURL: 'https://dry-mesa-00229.herokuapp.com/',
@@ -10,3 +10,4 @@ export const axiosWithAuth = () => {
         }
     })
 }
+export default axiosWithAuth

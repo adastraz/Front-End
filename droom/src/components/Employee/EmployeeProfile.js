@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import {fetchUser} from '../../actions'
 
@@ -11,8 +11,7 @@ import {fetchUser} from '../../actions'
 
 const EmployeeProfile = props => {
     console.log(props.user.user.name)
-    // useEffect(() => {fetchUser(props.match.params.id)},[])
-    const user= props.user.user
+    const user= props.user.user 
     return (
         <>
            <h1>{user.name}</h1>
