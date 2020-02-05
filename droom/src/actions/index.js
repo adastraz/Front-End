@@ -5,7 +5,12 @@ export const FETCHING_ERROR = 'FETCHING_ERROR';
 export const NEW_EMPLOYEE = 'NEW_EMPLOYEE';
 export const LOGIN = 'LOGIN';
 export const NEW_EMPLOYER = 'NEW_EMPLOYER';
-
+export const FETCHING_COMPANY_FAILURE = 'FETCHING_COMPANY_FAILURE'
+export const FETCHING_USER_FAILURE = 'FETCHING_USER_FAILURE'
+export const FETCHING_COMPANY_SUCCESS = 'FETCHING_COMPANY_SUCCESS'
+export const FETCHING_USER_SUCCESS = 'FETCHING_USER_SUCCESS'
+export const FETCHING_USER = 'FETCHING_USER'
+export const FETCHING_COMPANY = 'FETCHING_COMPANY'
 
 export const newEmployee = (thing) => dispatch => {
     dispatch({ type: FETCHING_START })
@@ -40,10 +45,32 @@ export const newEmployer = (thing) => dispatch => {
         .then(res => {
             dispatch({ type: LOGIN, payload: res.data})
             localStorage.setItem('token', res.data.token)
-            res.data.user.user_type ? history.push(`/users/${res.data.user.id}`) : history.push(`/companies/${res.data.company.id}`)
-            console.log('Login response', res.data)
+            res.data.user.user_type ? history.push(`users/${res.data.user.id}`) : history.push(`/companies/${res.data.company.id}`)
         })
         .catch(err => {
             dispatch({ type: FETCHING_ERROR, payload: err.data })
         })
  }
+ export const fetchUser = (id) => dispatch => {
+    dispatch({ type: FETCHING_USER})
+    axios.get(`https://dry-mesa-00229.herokuapp.com/api/users/${id}`)
+        .then(res => {
+            console.log(res)
+            dispatch({ type: FETCHING_USER_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            dispatch ({ type: FETCHING_USER_FAILURE, payload: err.response})
+        })
+}
+
+export const fetchCompany= (company) => dispatch => {
+    dispatch({ type: FETCHING_COMPANY})
+    axios.get(`https://dry-mesa-00229.herokuapp.com/api/users/${company.id}`)
+        .then(res => {
+            console.log(res)
+            dispatch({ type: FETCHING_COMPANY_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            dispatch ({ type: FETCHING_COMPANY_FAILURE, payload: err.response})
+        })
+}

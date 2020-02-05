@@ -3,6 +3,12 @@ import {
     FETCHING_ERROR,
     NEW_EMPLOYEE,
     NEW_EMPLOYER,
+    FETCHING_USER_SUCCESS,
+    FETCHING_USER,
+    FETCHING_COMPANY,
+    FETCHING_COMPANY_SUCCESS,
+    FETCHING_USER_FAILURE,
+    FETCHING_COMPANY_FAILURE,
     LOGIN
   } from '../actions'
 
@@ -33,17 +39,51 @@ export const reducer = (state = initialState, action) => {
                 user: action.payload,
                 isLoading: false
             }
+        case FETCHING_USER:
+            return{
+                ...state,
+                isLoading: true,
+            }
+        case FETCHING_COMPANY:
+            return{
+                ...state,
+                isLoading: true,
+            }
+        case FETCHING_COMPANY_FAILURE:
+            return{
+                ...state,
+                error: action.payload,
+                isLoading: false
+            }
+        case FETCHING_USER_FAILURE:
+            return{
+                ...state,
+                error: action.payload,
+                isLoading: false
+            }
         case NEW_EMPLOYEE:
             return {
                 ...state,
                 user: action.payload,
                 isLoading: false
                 }
+        case FETCHING_USER_SUCCESS:
+            return {
+                ...state,
+                user: action.payload,
+                isLoading: false
+            }
+            case FETCHING_COMPANY_SUCCESS:
+                return{
+                    ...state,
+                    user:action.payload,
+                    isLoading: false
+                }
         case LOGIN: 
         return{
             ...state,
             user: action.payload,
-            isLoading: false, 
+            isLoading: false
         }
         default:
             return state

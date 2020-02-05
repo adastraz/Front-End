@@ -6,18 +6,16 @@ import SignIn from './components/SignIn'
 import EmployerRegForm from './components/Employer/EmployerRegForm'
 import EmployeeRegForm from './components/Employee/EmployeeRegForm'
 import EmployeeProfile from './components/Employee/EmployeeProfile'
-import EmployeeProfile from './components/Employer/EmployerProfile'
+import EmployerProfile from './components/Employer/EmployerProfile'
 import history from './utils/history'
-import EmployerProfile from './components/Employer/EmployerProfile';
-
 
 function App() {
   return (
     <Router history={history}>
       <div className="App">
         <Switch>
-          <Route path='/company/:companyid' component={EmployerProfile} /> {/*Private*/}
-          <Route path='/user/:userid' component={EmployeeProfile} /> {/*Private*/}
+          <Route path='/companies/:id' component={EmployerProfile} /> {/*Private*/}
+          <Route path='/users/:id' component={EmployeeProfile} /> {/*Private*/}
           <Route path='/employeereg' component={EmployeeRegForm} />
           <Route path='/employerreg' component={EmployerRegForm} />
           <Route path='/signup' component={SignUp} />
