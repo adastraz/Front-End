@@ -84,7 +84,8 @@ export const fetchCompany= (company) => dispatch => {
 
 export const fetchCompanyArray = () => dispatch => {
     dispatch({ type: FETCHING_COMPANYARRAY})
-    axios.get(`https://dry-mesa-00229.herokuapp.com/api/companies`)
+    axiosWithAuth()
+    .get(`/api/companies`)
         .then(res => {
             console.log(res)
             dispatch({ type: FETCHING_COMPANYARRAY_SUCCESS, payload: res.data})
