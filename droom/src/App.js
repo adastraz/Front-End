@@ -6,7 +6,7 @@ import SignIn from './components/SignIn'
 import EmployerRegForm from './components/Employer/EmployerRegForm'
 import EmployeeRegForm from './components/Employee/EmployeeRegForm'
 import EmployeeProfile from './components/Employee/EmployeeProfile'
-import EmployeeProfile from './components/Employer/EmployerProfile'
+//import EmployeeProfile from './components/Employer/EmployerProfile'
 import history from './utils/history'
 import EmployerProfile from './components/Employer/EmployerProfile';
 
