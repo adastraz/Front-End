@@ -13,14 +13,14 @@ import {fetchUser} from '../../actions'
 
 const EmployeeProfile = props => {
 
-    console.log(props.user)
+    console.log(props.user.user)
 
     const user = props.user.user;
     
     return (
         <>
             <div>
-                <img src={user.imgUrl}/>
+                {/* <img src={user.imgurl}/> */}
                 <h1>{user.name}</h1>
            </div> 
            <div>

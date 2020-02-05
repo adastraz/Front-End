@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+
 const EmployerProfile = props => {
 
     console.log(props.user)
