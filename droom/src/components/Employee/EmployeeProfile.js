@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {fetchUser} from '../../actions'
 
 //         "user_id": 1,
 //         "first_name": "Jonathan",
@@ -8,7 +9,10 @@ import {connect} from 'react-redux'
 //         "experience": "Years of Java programming",
 //         "interest": "Coding, cooking, backpacking"
 
+
+
 const EmployeeProfile = props => {
+
     console.log(props.user)
 
     const user = props.user.user;
@@ -35,4 +39,4 @@ const EmployeeProfile = props => {
      }
  }
 
- export default connect(mapStateToProps, {})(EmployeeProfile)
+ export default connect(mapStateToProps, {fetchUser})(EmployeeProfile)

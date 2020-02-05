@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import {newEmployee} from '../../actions'
+import Loader from 'react-loader-spinner'
 
 const EmployeeRegForm = props => {
 
@@ -29,7 +30,7 @@ const EmployeeRegForm = props => {
         props.newEmployee({...employeeUser, ...props.location.state})
         //react 2 handle posting/etc
     }
-
+    console.log('isloading console', props.isLoading)
     return (
         <form onSubmit={submitForm}>
             <label htmlFor="name">Name: </label>
