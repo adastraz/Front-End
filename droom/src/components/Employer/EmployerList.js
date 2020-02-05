@@ -6,8 +6,7 @@ import {
     Carousel,
     CarouselItem,
     CarouselControl,
-    CarouselIndicators,
-    CarouselCaption
+    CarouselIndicators
   } from 'reactstrap';
 
 const EmployerList = props => {
@@ -38,8 +37,9 @@ const EmployerList = props => {
             onExited={() => setAnimating(false)}
             key={item.src}
           >
-            <img src={item.src} alt={item.altText} />
-            <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+            <EmployeeCard item={item} />
+            
+        
           </CarouselItem>
         );
       });
@@ -50,6 +50,7 @@ const EmployerList = props => {
     console.log(props.array)
     return(
         <Carousel
+            interval={false}
             activeIndex={activeIndex}
             next={next}
             previous={previous}
@@ -57,7 +58,7 @@ const EmployerList = props => {
         <CarouselIndicators items={props.array} activeIndex={activeIndex} onClickHandler={goToIndex} />
             {slides}
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+        <CarouselControl  direction="next" directionText="Next" onClickHandler={next} />
     </Carousel>
     )
 }
