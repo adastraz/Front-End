@@ -10,6 +10,10 @@ const EmployerProfile = props => {
 
     return (
         <>
+            <div>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
            <div>
                 <img src={user.imgUrl}/>
                 <h1>{user.company_name}</h1>
@@ -22,6 +26,7 @@ const EmployerProfile = props => {
            <div>
                 <h3>{user.openPositions}</h3>
            </div>
+
         </>
     )
 }

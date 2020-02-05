@@ -20,6 +20,10 @@ const EmployeeProfile = props => {
     return (
         <>
             <div>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+            <div>
                 <img src={user.imgurl}/>
                 <h1>{user.name}</h1>
            </div> 

@@ -19,16 +19,6 @@ function SignIn(props) {
         });
     };
 
-    //handle changes made to employer checkbox in the form
-    const handleCheckboxChanges = event => {
-        console.log("User: ", user);
-
-        setUser({
-            ...user,
-            [event.target.name]: event.target.checked
-        });
-    }
-
     //on submit
     const submitForm = e => {
         e.preventDefault();
