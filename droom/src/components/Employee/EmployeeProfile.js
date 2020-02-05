@@ -15,7 +15,7 @@ const EmployeeProfile = props => {
 
     console.log(props.user.user)
 
-    const user = props.user.user;
+    const user = props.user.user
     
     return (
         <>
