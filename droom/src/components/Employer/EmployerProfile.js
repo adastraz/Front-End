@@ -1,19 +1,26 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-// company_name: "Some Company", // string (required), must be unique
-// description: "This is a placeholding company" // string (required)
-// industry: "", // string (optional)
-// mission_statement: "", //string (optional)
-// imgUrl: "" // string (optional),
-// openPositions: "" // string (optional)
-
 const EmployerProfile = props => {
-    const user = props.user.user 
+
+    console.log(props.user)
+
+    const user = props.user.user;
 
     return (
         <>
-            
+           <div>
+                <img src={user.imgUrl}/>
+                <h1>{user.company_name}</h1>
+           </div> 
+           <div>
+                <h2>{user.mission_statement}</h2>
+                <h2>{user.industry}</h2>
+                <h2>{user.description}</h2>
+           </div>
+           <div>
+                <h3>{user.openPositions}</h3>
+           </div>
         </>
     )
 }

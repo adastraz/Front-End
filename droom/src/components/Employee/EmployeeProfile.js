@@ -2,19 +2,31 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchUser} from '../../actions'
 
-// name: "Test User",
-// experience: "",
-// industry: "",
-// imgUrl: "
+//         "user_id": 1,
+//         "first_name": "Jonathan",
+//         "last_name": "Chen",
+//         "occupation": "Student",
+//         "experience": "Years of Java programming",
+//         "interest": "Coding, cooking, backpacking"
 
 
 
 const EmployeeProfile = props => {
-    console.log(props.user.user.name)
-    const user= props.user.user 
+
+    console.log(props.user)
+
+    const user = props.user.user;
+    
     return (
         <>
-           <h1>{user.name}</h1>
+            <div>
+                <img src={user.imgUrl}/>
+                <h1>{user.name}</h1>
+           </div> 
+           <div>
+                <h2>{user.industry}</h2>
+                <h2>{user.experience}</h2>
+           </div>
         </>
     )
 }
