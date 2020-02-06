@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import {connect} from 'react-redux'
-import {editCompany, fetchCompany, deleteCompany} from '../../actions'
-import {useParams} from 'react-router-dom'
-import { Card, Button} from 'reactstrap'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { editCompany, fetchCompany, deleteCompany } from '../../actions'
+import { useParams } from 'react-router-dom'
+import { Card, Button } from 'reactstrap'
+import EmployerHeader from './EmployerHeader'
 
 const EmployerProfile = props => {
     console.log("I AM A PROPS FROM EMPLOYER PROFILE", props)
@@ -35,7 +36,9 @@ const EmployerProfile = props => {
     }
 
     return (
-        <div className='profile profileimage'>
+        <>
+            <EmployerHeader />
+            <div className='profile profileimage'>
                 <h2 className='profiletext'>Your Profile</h2>
                 <Card body inverse className='text-center profileCard'>
                     <div className='imgname'>
@@ -54,58 +57,59 @@ const EmployerProfile = props => {
                         <Button className='button' onClick={editCompany}>Edit</Button>
                         <Button className='button' onClick={deleteU}>Delete</Button>
                     </div>
+        
+                    {editing && (
+                        <form onSubmit={saveEdit}>
+                            <legend>edit user</legend>
+                            <label>
+                                Company Name:
+                                <input
+                                    onChange={handleChange}
+                                    value={userToEdit.name}
+                                    name="company_name"
+                                />
+                            </label>
+                            <label>
+                                Image:
+                                <input
+                                    onChange={handleChange}
+                                    name="imgUrl"
+                                    value={userToEdit.imgUrl}
+                                />
+                            </label>
+                            <label>
+                                Mission Statement:
+                                <input
+                                    onChange={handleChange}
+                                    name="mission_statement"
+                                    value={userToEdit.mission_statement}
+                                />
+                                </label>
+                                <label>
+                                    Industry:
+                                    <input
+                                        onChange={handleChange}
+                                        name="industry"
+                                        value={userToEdit.industry}
+                                    />
+                                </label>
+                                <label>
+                                    Description:
+                                    <input
+                                        onChange={handleChange}
+                                        name="description"
+                                        value={userToEdit.description}
+                                    />
+                                </label>
+                            <div className="button-row">
+                                <button type="submit">save</button>
+                                <button onClick={() => setEditing(false)}>cancel</button>
+                            </div>
+                        </form>
+                    )}
                 </Card>
-
-            {editing && (
-                <form onSubmit={saveEdit}>
-                    <legend>edit user</legend>
-                    <label>
-                        Company Name:
-                        <input
-                            onChange={handleChange}
-                            value={userToEdit.name}
-                            name="company_name"
-                        />
-                    </label>
-                    <label>
-                        Image:
-                        <input
-                            onChange={handleChange}
-                            name="imgUrl"
-                            value={userToEdit.imgUrl}
-                        />
-                    </label>
-                    <label>
-                        Mission Statement:
-                        <input
-                            onChange={handleChange}
-                            name="mission_statement"
-                            value={userToEdit.mission_statement}
-                        />
-                        </label>
-                        <label>
-                            Industry:
-                            <input
-                                onChange={handleChange}
-                                name="industry"
-                                value={userToEdit.industry}
-                            />
-                        </label>
-                        <label>
-                            Description:
-                            <input
-                                onChange={handleChange}
-                                name="description"
-                                value={userToEdit.description}
-                            />
-                        </label>
-                    <div className="button-row">
-                        <button type="submit">save</button>
-                        <button onClick={() => setEditing(false)}>cancel</button>
-                    </div>
-                </form>
-            )}
-        </div>
+            </div>
+        </>
     )
 }
 

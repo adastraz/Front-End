@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { editUser, fetchUser, deleteUser } from '../../actions'
 import { useParams } from 'react-router-dom'
-import { Card, Button, CardTitle, CardText } from 'reactstrap'
+import { Card, Button } from 'reactstrap'
+import EmployeeHeader from './EmployeeHeader'
 
 
 const EmployeeProfile = props => {
@@ -37,74 +38,77 @@ const EmployeeProfile = props => {
     }
 
     return (
-        <div className='profile profileimage'>
-            <h2 className='profiletext'>Your Profile</h2>
-            <Card body inverse className='text-center profileCard'>
-                <div className='imgname'>
-                    <img src={props.user.imgUrl} alt='employee profile'/>
-                    <h1>{props.user.name}</h1>
-                </div> 
-                <div>
-                    <h2>{props.user.industry}</h2>
-                    <h2>{props.user.experience}</h2>
-                </div>
-                <div>
-                    <Button className='button' onClick={userEdit}>Edit</Button>
-                    <Button className='button' onClick={deleteU}>Delete</Button>
-                </div>
-            </Card>
-
-            {editing && (
-                <form onSubmit={saveEdit}>
-                    <legend>edit user</legend>
-                    <label>
-                        Name:
-                        <input
-                            onChange={handleChange}
-                            value={userToEdit.name}
-                            name="name"
-                        />
-                    </label>
-                    <label>
-                        Image:
-                        <input
-                            onChange={handleChange}
-                            name="imgUrl"
-                            value={userToEdit.imgUrl}
-                        />
-                    </label>
-                    <label>
-                        Industry:
-                        <input
-                            onChange={handleChange}
-                            name="industry"
-                            value={userToEdit.industry}
-                        />
-                    </label>
-                    <label>
-                        Experience:
-                        <input
-                            onChange={handleChange}
-                            name="experience"
-                            value={userToEdit.experience}
-                        />
-                    </label>
-                    <div className="button-row">
-                        <button type="submit">save</button>
-                        <button onClick={() => setEditing(false)}>cancel</button>
+        <div>
+            <EmployeeHeader />
+            <div className='profile profileimage'>
+                <h2 className='profiletext'>Your Profile</h2>
+                <Card body inverse className='text-center profileCard'>
+                    <div className='imgname'>
+                        <img src={props.user.imgUrl} alt='employee profile'/>
+                        <h1>{props.user.name}</h1>
+                    </div> 
+                    <div>
+                        <h2>{props.user.industry}</h2>
+                        <h2>{props.user.experience}</h2>
                     </div>
-                </form>
-            )}
+                    <div>
+                        <Button className='button' onClick={userEdit}>Edit</Button>
+                        <Button className='button' onClick={deleteU}>Delete</Button>
+                    </div>
+
+                    {editing && (
+                        <form onSubmit={saveEdit}>
+                            <legend>edit user</legend>
+                            <label>
+                                Name:
+                                <input
+                                    onChange={handleChange}
+                                    value={userToEdit.name}
+                                    name="name"
+                                />
+                            </label>
+                            <label>
+                                Image:
+                                <input
+                                    onChange={handleChange}
+                                    name="imgUrl"
+                                    value={userToEdit.imgUrl}
+                                />
+                            </label>
+                            <label>
+                                Industry:
+                                <input
+                                    onChange={handleChange}
+                                    name="industry"
+                                    value={userToEdit.industry}
+                                />
+                            </label>
+                            <label>
+                                Experience:
+                                <input
+                                    onChange={handleChange}
+                                    name="experience"
+                                    value={userToEdit.experience}
+                                />
+                            </label>
+                            <div className="button-row">
+                                <button type="submit">save</button>
+                                <button onClick={() => setEditing(false)}>cancel</button>
+                            </div>
+                        </form>
+                    )}
+                </Card>
+            </div>
         </div>
     )
 }
 
- const mapStateToProps = state => {
-     return {
-         isLoading: state.isLoading,
-         user: state.user,
-         error: state.error
-     }
- }
+const mapStateToProps = state => {
+    return {
+        isLoading: state.isLoading,
+        user: state.user,
+        error: state.error
+    }
+}
 
- export default connect(mapStateToProps, {deleteUser, fetchUser, editUser})(EmployeeProfile)
+export default connect(mapStateToProps, {deleteUser, fetchUser, editUser})(EmployeeProfile)

@@ -1,7 +1,9 @@
-import React, {useState} from "react";
-import {connect} from 'react-redux'
-import {login} from '../actions'
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import { connect } from 'react-redux'
+import { login } from '../actions'
+import { Link } from 'react-router-dom'
+import HeaderWelcome from './HeaderWelcome'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 function SignIn(props) {
 
@@ -26,26 +28,44 @@ function SignIn(props) {
     }
 
     return (
-        <form onSubmit={submitForm}>
-            <label htmlFor="username">Username: </label>
-            <input 
-                id="username"
-                type="text"
-                name="username"
-                onChange={handleChanges}
-                value={user.username}
-            />
-            <label htmlFor="password">Password: </label>
-            <input 
-                id="password"
-                type="password"
-                name="password"
-                onChange={handleChanges}
-                value={user.password}
-            />
-            <button type="submit">Sign In</button>
-            <Link to='/signup' >I don't have an account</Link> 
-        </form>
+        <div>
+        <HeaderWelcome />
+        <div className="formContainer">
+            <div className="signFormImage">
+
+            </div>
+            <div className="signForm">
+                <h1>Sign In</h1>
+                <Form className="form"onSubmit={submitForm}>
+                    <FormGroup>
+                        <Label htmlFor="username">Username: </Label>
+                        <Input 
+                            id="username"
+                            type="text"
+                            name="username"
+                            onChange={handleChanges}
+                            value={user.username}
+                            />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="password">Password: </Label>
+                        <Input 
+                            id="password"
+                            type="password"
+                            name="password"
+                            onChange={handleChanges}
+                            value={user.password}
+                            />
+                    </FormGroup>
+
+                    <Button className="signButton" type="submit">Sign In</Button>
+
+                    <Link className="noAccountLink" to='/signup' >I don't have an account</Link> 
+
+                </Form>
+            </div>
+        </div>
+    </div>
     );
 }
 

@@ -1,12 +1,5 @@
 import React from 'react';
 import { Card }from 'reactstrap'
-// company_name: "Apple Inc"
-// description: "Creating the best products for you"
-// industry: "Technology"
-// mission_statement: "Make your wallet bleed."
-// imgUrl: ""
-// openPositions: "Developers, Desginers"
-
 
 const EmployerCard = props => {
     return (

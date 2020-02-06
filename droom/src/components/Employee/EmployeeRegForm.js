@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import {newEmployee} from '../../actions'
+import HeaderWelcome from '../HeaderWelcome'
 
 const EmployeeRegForm = props => {
 
@@ -27,41 +28,44 @@ const EmployeeRegForm = props => {
 
     console.log('isloading', props.isLoading)
     return (
-        <form onSubmit={submitForm}>
-            <label htmlFor="name">Name: </label>
-            <input 
-                id="name"
-                type="text"
-                name="name"
-                onChange={handleChanges}
-                value={employeeUser.name}
-            />
-            <label htmlFor="industry">Industry: </label>
-            <input 
-                id="industry"
-                type="text"
-                name="industry"
-                onChange={handleChanges}
-                value={employeeUser.industry}
-            />
-            <label htmlFor="experience">Experience: </label>
-            <input 
-                id="experience"
-                type="text" //may need to add textarea later
-                name="experience"
-                onChange={handleChanges}
-                value={employeeUser.experience}
-            />
-            <label htmlFor="imgUrl">Image: </label>
-            <input 
-                id="imgUrl"
-                type="text"
-                name="imgUrl"
-                onChange={handleChanges}
-                value={employeeUser.imgUrl}
-            />
-            <button type="submit">Create Account</button>
-        </form>
+        <div>
+            <HeaderWelcome />
+            <form onSubmit={submitForm}>
+                <label htmlFor="name">Name: </label>
+                <input 
+                    id="name"
+                    type="text"
+                    name="name"
+                    onChange={handleChanges}
+                    value={employeeUser.name}
+                    />
+                <label htmlFor="industry">Industry: </label>
+                <input 
+                    id="industry"
+                    type="text"
+                    name="industry"
+                    onChange={handleChanges}
+                    value={employeeUser.industry}
+                    />
+                <label htmlFor="experience">Experience: </label>
+                <input 
+                    id="experience"
+                    type="text" //may need to add textarea later
+                    name="experience"
+                    onChange={handleChanges}
+                    value={employeeUser.experience}
+                    />
+                <label htmlFor="imgUrl">Image: </label>
+                <input 
+                    id="imgUrl"
+                    type="text"
+                    name="imgUrl"
+                    onChange={handleChanges}
+                    value={employeeUser.imgUrl}
+                    />
+                <button type="submit">Create Account</button>
+            </form>
+        </div>
     )
 }
 
