@@ -9,11 +9,16 @@ import EmployeeProfile from './components/Employee/EmployeeProfile'
 import EmployerProfile from './components/Employer/EmployerProfile'
 import EmployerList from './components/Employer/EmployerList'
 import history from './utils/history'
+//import EmployerProfile from './components/Employer/EmployerProfile';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 
 function App() {
   return (
     <Router history={history}>
       <div className="App">
+        <Header/>
         <Switch>
           <Route path='/list' component={EmployerList} /> {/*Private*/}
           <Route path='/companies/:id' component={EmployerProfile} /> {/*Private*/}
@@ -24,6 +29,7 @@ function App() {
           <Route path='/signin' component={SignIn} />
           <Route path='/' component={Welcome} />
         </Switch>
+        <Footer/>
       </div>
     </Router>
   );
