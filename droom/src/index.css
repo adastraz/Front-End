@@ -24,6 +24,15 @@ body {
     border: 3px solid #3dd3e3;
 }
 
+.navLink {
+    color: white;
+    text-decoration: none;
+}
+
+.navLink:hover {
+    text-decoration: none;
+    color: #3dd3e3;
+}
 
 /*Footer*/
 .footerTop {
