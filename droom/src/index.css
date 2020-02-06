@@ -193,3 +193,15 @@ body {
          justify-content: center;
      }
  }
+
+ .noAccountLink {
+     text-decoration: none;
+     color: black;
+     text-align: center;
+     margin-top: 2rem;
+ }
+
+ .noAccountLink:hover {
+     text-decoration: none;
+     color: #ff00f0;
+ }
