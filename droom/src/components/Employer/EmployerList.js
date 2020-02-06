@@ -47,6 +47,7 @@ const EmployerList = props => {
     },[])
     console.log(props.array)
     return(
+        <>
         <Carousel
             interval={false}
             activeIndex={activeIndex}
@@ -58,6 +59,7 @@ const EmployerList = props => {
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
         <CarouselControl  direction="next" directionText="Next" onClickHandler={next} />
     </Carousel>
+    </>
     )
 }
 

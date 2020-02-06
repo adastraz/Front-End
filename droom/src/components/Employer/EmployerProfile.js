@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 import {editCompany, fetchCompany, deleteCompany} from '../../actions'
 import {useParams} from 'react-router-dom'
+import { Card, Button} from 'reactstrap'
 
 const EmployerProfile = props => {
     console.log("I AM A PROPS FROM EMPLOYER PROFILE", props)
@@ -34,23 +35,27 @@ const EmployerProfile = props => {
     }
 
     return (
-        <>
-            <div>
-                <button onClick={editCompany}>Edit</button>
-                <button onClick={deleteU}>Delete</button>
-            </div>
-            <div>
-                <img src={props.user.imgUrl}/>
-                <h1>{props.user.company_name}</h1>
-           </div> 
-           <div>
-                <h2>{props.user.mission_statement}</h2>
-                <h2>{props.user.industry}</h2>
-                <h2>{props.user.description}</h2>
-            </div>
-            <div>
-                <h3>{props.user.openPositions}</h3>
-            </div>
+        <div className='profile profileimage'>
+                <h2 className='profiletext'>Your Profile</h2>
+                <Card body inverse className='text-center profileCard'>
+                    <div className='imgname'>
+                        <img src={props.user.imgUrl} alt='employee profile'/>
+                        <h1>{props.user.company_name}</h1>
+                    </div> 
+                    <div>
+                        <h2>{props.user.mission_statement}</h2>
+                        <h2>{props.user.industry}</h2>
+                        <h2>{props.user.description}</h2>
+                    </div>
+                    <div>
+                        <h3>{props.user.openPositions}</h3>
+                    </div>
+                    <div>
+                        <Button className='button' onClick={editCompany}>Edit</Button>
+                        <Button className='button' onClick={deleteU}>Delete</Button>
+                    </div>
+                </Card>
+
             {editing && (
                 <form onSubmit={saveEdit}>
                     <legend>edit user</legend>
@@ -100,7 +105,7 @@ const EmployerProfile = props => {
                     </div>
                 </form>
             )}
-        </>
+        </div>
     )
 }
 

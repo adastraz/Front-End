@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react'
-import {connect} from 'react-redux'
-import {editUser, fetchUser, deleteUser} from '../../actions'
-import {useParams} from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { editUser, fetchUser, deleteUser } from '../../actions'
+import { useParams } from 'react-router-dom'
+import { Card, Button, CardTitle, CardText } from 'reactstrap'
 
 
 const EmployeeProfile = props => {
@@ -17,7 +18,7 @@ const EmployeeProfile = props => {
         props.fetchUser(id);
     }, [])
     
-    const editUser = () => {
+    const userEdit = () => {
         setEditing(true);
     };
     
@@ -36,19 +37,23 @@ const EmployeeProfile = props => {
     }
 
     return (
-        <>
-            <div>
-                <button onClick={editUser}>Edit</button>
-                <button onClick={deleteU}>Delete</button>
-            </div>
-            <div>
-                <img src={props.user.imgUrl}/>
-                <h1>{props.user.name}</h1>
-            </div> 
-            <div>
-                <h2>{props.user.industry}</h2>
-                <h2>{props.user.experience}</h2>
-            </div>
+        <div className='profile profileimage'>
+            <h2 className='profiletext'>Your Profile</h2>
+            <Card body inverse className='text-center profileCard'>
+                <div className='imgname'>
+                    <img src={props.user.imgUrl} alt='employee profile'/>
+                    <h1>{props.user.name}</h1>
+                </div> 
+                <div>
+                    <h2>{props.user.industry}</h2>
+                    <h2>{props.user.experience}</h2>
+                </div>
+                <div>
+                    <Button className='button' onClick={userEdit}>Edit</Button>
+                    <Button className='button' onClick={deleteU}>Delete</Button>
+                </div>
+            </Card>
+
             {editing && (
                 <form onSubmit={saveEdit}>
                     <legend>edit user</legend>
@@ -84,13 +89,13 @@ const EmployeeProfile = props => {
                             value={userToEdit.experience}
                         />
                     </label>
-                <div className="button-row">
-                    <button type="submit">save</button>
-                    <button onClick={() => setEditing(false)}>cancel</button>
-                </div>
-            </form>
-      )}
-        </>
+                    <div className="button-row">
+                        <button type="submit">save</button>
+                        <button onClick={() => setEditing(false)}>cancel</button>
+                    </div>
+                </form>
+            )}
+        </div>
     )
 }
 
@@ -102,4 +107,4 @@ const EmployeeProfile = props => {
      }
  }
 
- export default connect(mapStateToProps, {deleteUser,fetchUser, editUser})(EmployeeProfile)
+ export default connect(mapStateToProps, {deleteUser, fetchUser, editUser})(EmployeeProfile)
