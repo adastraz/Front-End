@@ -25,7 +25,7 @@ function Header() {
           <div>
             <Navbar className="Navbar" light expand="">
               <NavbarBrand href="/"><img src={require("./img/Icon1.png")} alt='logo'/></NavbarBrand>
-              <NavbarToggler onClick={toggle} />
+              <NavbarToggler className="hamburger" onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto Nav" navbar>
                   <NavItem>
