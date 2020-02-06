@@ -3,9 +3,9 @@ import history from '../utils/history'
 import axiosWithAuth from '../utils/axiosWithAuth'
 export const FETCHING_START = 'FETCHING_START';
 export const FETCHING_ERROR = 'FETCHING_ERROR';
-export const NEW_EMPLOYEE = 'NEW_EMPLOYEE';
+export const EMPLOYEE = 'EMPLOYEE';
 export const LOGIN = 'LOGIN';
-export const NEW_EMPLOYER = 'NEW_EMPLOYER';
+export const EMPLOYER = 'EMPLOYER';
 export const FETCHING_COMPANYARRAY_SUCCESS = 'FETCHING_COMPANYARRAY_SUCCESS'
 export const FETCHING_USERARRAY_SUCCESS = 'FETCHING_USERARRAY_SUCCESS';
 
@@ -14,7 +14,7 @@ export const newEmployee = (thing) => dispatch => {
     axios
         .post('https://dry-mesa-00229.herokuapp.com/api/register/user', thing)
             .then(res => {
-                dispatch ({ type: NEW_EMPLOYEE, payload: res.data })
+                dispatch ({ type: EMPLOYEE, payload: res.data })
                 history.push(`/signin`)
             })
             .catch(err => {
@@ -27,7 +27,7 @@ export const newEmployer = (thing) => dispatch => {
     axios
         .post('https://dry-mesa-00229.herokuapp.com/api/register/company', thing)
             .then(res => {
-                dispatch ({ type: NEW_EMPLOYER, payload: res.data })
+                dispatch ({ type: EMPLOYER, payload: res.data })
                 history.push(`/signin`)
             })
             .catch(err => {
@@ -56,7 +56,7 @@ export const fetchUser = (id) => dispatch => {
     axiosWithAuth()
         .get(`/api/users/${id}`)
             .then(res => {
-                dispatch({ type: NEW_EMPLOYEE, payload: res.data})
+                dispatch({ type: EMPLOYEE, payload: res.data})
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
@@ -67,7 +67,7 @@ export const fetchCompany= (id) => dispatch => {
     axiosWithAuth()
         .get(`/api/companies/${id}`)
             .then(res => {
-                dispatch({ type: NEW_EMPLOYER, payload: res.data})
+                dispatch({ type: EMPLOYER, payload: res.data})
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
@@ -103,7 +103,7 @@ export const editUser = (user, id) => dispatch => {
         .put(`/api/users/${id}`, user)
             .then( res => {
                 console.log(res)
-                dispatch({ type: NEW_EMPLOYEE, payload: res.data})
+                dispatch({ type: EMPLOYEE, payload: res.data})
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
@@ -116,7 +116,7 @@ export const editCompany = (company, id) => dispatch => {
         .put(`/api/companies/${id}`, company)
             .then( res => {
                 console.log(res)
-                dispatch({ type: NEW_EMPLOYER, payload: res.data})
+                dispatch({ type: EMPLOYER, payload: res.data})
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})

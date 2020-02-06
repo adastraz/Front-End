@@ -1,8 +1,8 @@
 import {
     FETCHING_START,
     FETCHING_ERROR,
-    NEW_EMPLOYEE,
-    NEW_EMPLOYER,
+    EMPLOYEE,
+    EMPLOYER,
     FETCHING_COMPANYARRAY_SUCCESS,
     FETCHING_USERARRAY_SUCCESS,
     LOGIN,
@@ -32,7 +32,7 @@ export const reducer = (state = initialState, action) => {
                 error: action.payload,
                 isLoading: false
             }
-        case NEW_EMPLOYER:
+        case EMPLOYER:
             console.log("EMPLOYER ACTION", action.payload)
             return {
                 ...state,
@@ -40,7 +40,7 @@ export const reducer = (state = initialState, action) => {
                 isLoading: false,
                 error: null
             }
-        case NEW_EMPLOYEE:
+        case EMPLOYEE:
             console.log("EMPLOYEE ACTION", action.payload)
             return {
                 ...state,

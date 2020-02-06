@@ -42,7 +42,7 @@ const EmployeeProfile = props => {
                 <button onClick={deleteU}>Delete</button>
             </div>
             <div>
-                <img src={props.user.user.imgUrl}/>
+                <img src={props.user.imgUrl}/>
                 <h1>{props.user.name}</h1>
             </div> 
             <div>
