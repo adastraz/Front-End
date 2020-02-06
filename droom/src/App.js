@@ -11,7 +11,6 @@ import EmployerList from './components/Employer/EmployerList'
 import EmployeeList from './components/Employee/EmployeeList';
 import history from './utils/history'
 import PrivateRoute from './components/PrivateRoute'
-import Header from './components/Header';
 import Footer from './components/Footer';
 
 

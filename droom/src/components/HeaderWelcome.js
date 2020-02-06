@@ -7,11 +7,6 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText
   } from 'reactstrap';
  import {Link} from 'react-router-dom'
 
@@ -25,8 +20,7 @@ function HeaderWelcome() {
           <div>
             <Navbar className="Navbar" light expand="">
               <NavbarBrand href="/"><img src={require("./img/Icon1.png")} alt='logo'/></NavbarBrand>
-              <NavbarToggler onClick={toggle} />
-
+              <NavbarToggler className="hamburger" onClick={toggle} />
             </Navbar>
           </div>
         );
