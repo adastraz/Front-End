@@ -2,3 +2,45 @@ body {
     font-family: 'Playfair Display SC', serif;
     font-family: 'Capriola', sans-serif;
 }
+
+/*Header*/
+.Navbar {
+    display: flex;
+    padding: .5rem 3rem .5rem 3rem;
+    background-color: #ff00f0;
+}
+
+.Nav {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/*Footer*/
+.footerTop {
+    background-color: #b5b5b5;
+    padding: 2rem 3rem .5rem 3rem;
+    display: flex;
+    justify-content: space-evenly
+}
+
+.footerTopContent {
+    display: flex;
+}
+
+.footerTopContentDiv {
+    margin: 0 2rem 0 2rem;
+}
+
+.footerBottom {
+    background-color: #b5b5b5;
+    border-top: 1px solid grey;
+    padding: 1rem 3rem 0 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.footerBottom p {
+    margin-right: 2rem
+}
+

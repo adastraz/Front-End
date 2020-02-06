@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import {newEmployee} from '../../actions'
-import Loader from 'react-loader-spinner'
+
 
 const EmployeeRegForm = props => {
 

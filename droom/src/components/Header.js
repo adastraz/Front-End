@@ -23,11 +23,11 @@ function Header() {
       
         return (
           <div>
-            <Navbar style={{display: 'flex', padding: '.5rem 3rem .5rem 3rem', backgroundColor: '#ff00f0'}} light expand="">
+            <Navbar className="Navbar" light expand="">
               <NavbarBrand href="/"><img src={require("./img/Icon1.png")} alt='logo'/></NavbarBrand>
               <NavbarToggler onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
-                <Nav style={{display: 'flex', alignItems: 'flex-end'}}className="mr-auto" navbar>
+                <Nav className="mr-auto Nav" navbar>
                   <NavItem>
                     <NavLink style={{color:'white'}}href="">My Profile</NavLink>
                   </NavItem>
