@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
+import {Button, Form, FormGroup, Label, Input} from 'reactstrap'
 
 function SignUp(props) {
 
@@ -34,39 +35,53 @@ function SignUp(props) {
     }
 
     return (
-        <form onSubmit={submitForm}>
-            <label htmlFor="username">Username: </label>
-            <input 
-                id="username"
-                type="text"
-                name="username"
-                onChange={handleChanges}
-                value={user.username}
-            />
-            <label htmlFor="password">Password: </label>
-            <input 
-                id="password"
-                type="password"
-                name="password"
-                onChange={handleChanges}
-                value={user.password}
-            />
-            <label htmlFor="user_type">Are you looking for a job?</label>
-            <input
-                id="user_type"
-                type="checkbox"
-                name="user_type"
-                onChange={handleCheckboxChanges}
-                checked={user.user_type}
-            />
-            <button 
-                type="submit"
-                onClick={() => 
-                    user.user_type ? props.history.push('/employeereg', user) : props.history.push('/employerreg', user)}>
-                        Sign Up
-            </button>
-        </form>
-
+        <div className="formContainer">
+            <div className="signFormImage">
+                
+            </div>
+            <div className="signForm">
+            <h1>Sign Up</h1>
+            <Form onSubmit={submitForm}>
+                <FormGroup>
+                <Label htmlFor="username">Username: </Label>
+                <Input 
+                    id="username"
+                    type="text"
+                    name="username"
+                    onChange={handleChanges}
+                    value={user.username}
+                />
+                </FormGroup>
+                <FormGroup>
+                <Label htmlFor="password">Password: </Label>
+                <Input 
+                    id="password"
+                    type="password"
+                    name="password"
+                    onChange={handleChanges}
+                    value={user.password}
+                />
+                </FormGroup>
+                <FormGroup check>
+                <Label check htmlFor="user_type">
+                <Input
+                    id="user_type"
+                    type="checkbox"
+                    name="user_type"
+                    onChange={handleCheckboxChanges}
+                    checked={user.user_type}
+                />Are you looking for a job?
+                </Label>
+                </FormGroup>
+                <Button className="signButton"
+                    type="submit"
+                    onClick={() => 
+                        user.user_type ? props.history.push('/employeereg', user) : props.history.push('/employerreg', user)}>
+                            Sign Up
+                </Button>
+            </Form>
+            </div>
+        </div>
     );
 }
 
