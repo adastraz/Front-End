@@ -44,3 +44,37 @@ body {
     margin-right: 2rem
 }
 
+/*Welcome*/
+.Jumbotron {
+   margin-bottom: 0px; 
+   padding: 20rem;
+   background-image: url('https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80');
+   background-position: center;
+}
+
+.welcomeCard {
+    opacity: 0.7;
+    margin-top: -10%;
+}
+
+.welcomeLinks {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.welcomeLinks:hover {
+    text-decoration: none;
+    color: #ff00f0;
+}
+
+.welcomeButton {
+    background-color: #ff00f0;
+    margin: 2rem;
+
+}
+
+.welcomeButton:hover {
+    background-color: ivory;
+    color: #ff00f0;
+}
