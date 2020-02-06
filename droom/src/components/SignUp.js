@@ -41,7 +41,7 @@ function SignUp(props) {
             </div>
             <div className="signForm">
             <h1>Sign Up</h1>
-            <Form onSubmit={submitForm}>
+            <Form className="form" onSubmit={submitForm}>
                 <FormGroup>
                 <Label htmlFor="username">Username: </Label>
                 <Input 

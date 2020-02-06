@@ -159,13 +159,19 @@ body {
 .signButton {
     background-color: #ff00f0;
     border: 3px solid white;
-    
+    margin-top: 2rem;
 }
 
 .signButton:hover {
     background-color: white;
     color: #ff00f0;
     border: 3px solid #ff00f0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media (max-width: 1000px) {
@@ -175,13 +181,13 @@ body {
     
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     
     .signFormImage {
         display: none;
     }
      .signForm {
-         padding: 0;
+         padding: 2rem 0 2rem 0;
      }
      .formContainer {
          justify-content: center;
