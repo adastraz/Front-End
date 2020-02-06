@@ -1,6 +1,7 @@
-import React, {useState} from "react";
-import {connect} from 'react-redux'
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap'
+import React, { useState } from "react";
+import { connect } from 'react-redux'
+import HeaderWelcome from './HeaderWelcome'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 function SignUp(props) {
 
@@ -35,6 +36,8 @@ function SignUp(props) {
     }
 
     return (
+        <div>
+        <HeaderWelcome />    
         <div className="formContainer">
             <div className="signFormImage">
                 
@@ -50,7 +53,7 @@ function SignUp(props) {
                             name="username"
                             onChange={handleChanges}
                             value={user.username}
-                        />
+                            />
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="password">Password: </Label>
@@ -60,7 +63,7 @@ function SignUp(props) {
                             name="password"
                             onChange={handleChanges}
                             value={user.password}
-                        />
+                            />
                     </FormGroup>
                     <FormGroup check>
                         <Label check htmlFor="user_type">
@@ -70,7 +73,7 @@ function SignUp(props) {
                             name="user_type"
                             onChange={handleCheckboxChanges}
                             checked={user.user_type}
-                        />Are you looking for a job?
+                            />Are you looking for a job?
                         </Label>
                     </FormGroup>
                     
@@ -83,6 +86,7 @@ function SignUp(props) {
                 </Form>
             </div>
         </div>
+    </div>
     );
 }
 

@@ -1,8 +1,9 @@
-import React, {useState} from "react";
-import {connect} from 'react-redux'
-import {login} from '../actions'
-import {Link} from 'react-router-dom'
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap'
+import React, { useState } from "react";
+import { connect } from 'react-redux'
+import { login } from '../actions'
+import { Link } from 'react-router-dom'
+import HeaderWelcome from './HeaderWelcome'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 function SignIn(props) {
 
@@ -27,6 +28,8 @@ function SignIn(props) {
     }
 
     return (
+        <div>
+        <HeaderWelcome />
         <div className="formContainer">
             <div className="signFormImage">
 
@@ -42,7 +45,7 @@ function SignIn(props) {
                             name="username"
                             onChange={handleChanges}
                             value={user.username}
-                        />
+                            />
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="password">Password: </Label>
@@ -52,7 +55,7 @@ function SignIn(props) {
                             name="password"
                             onChange={handleChanges}
                             value={user.password}
-                        />
+                            />
                     </FormGroup>
 
                     <Button className="signButton" type="submit">Sign In</Button>
@@ -62,6 +65,7 @@ function SignIn(props) {
                 </Form>
             </div>
         </div>
+    </div>
     );
 }
 

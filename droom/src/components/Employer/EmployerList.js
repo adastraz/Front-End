@@ -1,13 +1,14 @@
-import React, {useState, useEffect} from 'react' 
-import {connect} from 'react-redux'
-import {fetchUserArray} from '../../actions'
+import React, { useState, useEffect } from 'react' 
+import { connect } from 'react-redux'
+import { fetchUserArray } from '../../actions'
 import EmployeeCard from '../Employee/EmployeeCard'
 import {
     Carousel,
     CarouselItem,
     CarouselControl,
     CarouselIndicators
-  } from 'reactstrap';
+} from 'reactstrap';
+import EmployerHeader from './EmployerHeader'
 
 const EmployerList = props => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -32,13 +33,13 @@ const EmployerList = props => {
 
     const slides = props.array.map((item) => {
         return (
-          <CarouselItem
+            <CarouselItem
             onExiting={() => setAnimating(true)}
             onExited={() => setAnimating(false)}
             key={item.src}
-          >
-            <EmployeeCard item={item} />
-          </CarouselItem>
+            >
+                <EmployeeCard item={item} />
+            </CarouselItem>
         );
       });
 
@@ -47,17 +48,20 @@ const EmployerList = props => {
     },[])
     console.log(props.array)
     return(
-        <Carousel
-            interval={false}
-            activeIndex={activeIndex}
-            next={next}
-            previous={previous}
-        >
-        <CarouselIndicators items={props.array} activeIndex={activeIndex} onClickHandler={goToIndex} />
-            {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl  direction="next" directionText="Next" onClickHandler={next} />
-    </Carousel>
+        <>
+            <EmployerHeader />
+            <Carousel
+                interval={false}
+                activeIndex={activeIndex}
+                next={next}
+                previous={previous}
+            >
+                <CarouselIndicators items={props.array} activeIndex={activeIndex} onClickHandler={goToIndex} />
+                {slides}
+                <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+                <CarouselControl  direction="next" directionText="Next" onClickHandler={next} />
+            </Carousel>
+        </>
     )
 }
 

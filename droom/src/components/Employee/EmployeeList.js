@@ -8,7 +8,7 @@ import {
     CarouselControl,
     CarouselIndicators
   } from 'reactstrap';
-
+import EmployeeHeader from './EmployeeHeader'
 
 const EmployeeList = props => {
 
@@ -51,17 +51,20 @@ const EmployeeList = props => {
     console.log('PROPS.ARRAY IN EMPLOYEE PROFILE', props.array)
     
     return(
-        <Carousel
+        <div>
+            <EmployeeHeader />
+            <Carousel
             interval={false}
             activeIndex={activeIndex}
             next={next}
             previous={previous}
-        >
-        <CarouselIndicators items={props.array} activeIndex={activeIndex} onClickHandler={goToIndex} />
-            {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl  direction="next" directionText="Next" onClickHandler={next} />
-    </Carousel>
+            >
+                <CarouselIndicators items={props.array} activeIndex={activeIndex} onClickHandler={goToIndex} />
+                    {slides}
+                <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+                <CarouselControl  direction="next" directionText="Next" onClickHandler={next} />
+            </Carousel>
+        </div>
     )
     
 }

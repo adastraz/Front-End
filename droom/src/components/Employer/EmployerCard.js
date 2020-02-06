@@ -1,26 +1,23 @@
 import React from 'react';
-
-// company_name: "Apple Inc"
-// description: "Creating the best products for you"
-// industry: "Technology"
-// mission_statement: "Make your wallet bleed."
-// imgUrl: ""
-// openPositions: "Developers, Desginers"
-
+import { Card }from 'reactstrap'
 
 const EmployerCard = props => {
     return (
-        <div>
-            <div>
-                <h1>{props.item.company_name}</h1>
-                <img src={props.item.imgUrl} />
-            </div>
-            <div>
-                <p>{props.item.description}</p>
-                <p>{props.item.mission_statement}</p>
-                <p>{props.item.industry}</p>
-                <p>{props.openPositions}</p>
-            </div>
+        <div className='profile profilecolor'>
+                <Card body inverse className='text-center profileCard'>
+                    <div className='imgname'>
+                        <img src={props.item.imgUrl} alt='employee profile'/>
+                        <h1>{props.item.company_name}</h1>
+                    </div> 
+                    <div>
+                        <h2>{props.item.mission_statement}</h2>
+                        <h2>{props.item.industry}</h2>
+                        <h2>{props.item.description}</h2>
+                    </div>
+                    <div>
+                        <h3>{props.item.openPositions}</h3>
+                    </div>
+                </Card>
         </div>
     )
 }

@@ -135,8 +135,79 @@ body {
     border: 3px solid #ff00f0;
 }
 
-/*Sign Forms*/
+/*Profile*/
+.imgname {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:3%;
+}
 
+.imgname h1{
+    margin:0 2%;
+    font-weight:bold;
+    font-size: 3rem;
+    color: #3dd3e3
+
+}
+
+.imgname img{
+    margin: 0 2%;
+    max-width:200px;
+    border-radius: 30px;
+    border: 4px solid white;
+}
+
+.profiletext{
+    margin: 0 0 15px -400px;
+}
+
+.profile {
+    padding: 7%;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+}
+
+.profileimage{
+    background-image: url(https://images.unsplash.com/photo-1495652715132-7aafc87c147e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.profilecolor {
+    background-image: linear-gradient(#3dd3e3, #075d66);
+}
+
+.button{
+    margin: 5% 5% 0 5%;
+    padding:15px 25px;
+    background-color: #0c99c1;
+}
+
+.button:hover{
+    background-color:skyblue;
+}
+
+.listname{
+    margin: 0 0 0 150px;
+    padding-top: 3%;
+}
+
+.listnamediv{
+    background-color: #3dd3e3;
+}
+
+.profileCard {
+    border-radius: 20px;
+    padding: 200px 5%;
+    margin: 0 auto;
+    background-color:#ffcc00;
+    max-width: 800px;
+    border: 3px solid white;
+}
+
+/*Sign Forms*/
 .formContainer {
     display: flex;
 }
