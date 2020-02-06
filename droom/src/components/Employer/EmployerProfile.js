@@ -4,7 +4,7 @@ import {editCompany, fetchCompany, deleteCompany} from '../../actions'
 import {useParams} from 'react-router-dom'
 
 const EmployerProfile = props => {
-    console.log("I AM A PROPS FROM EMPLOYER PROFILE", props.user)
+    console.log("I AM A PROPS FROM EMPLOYER PROFILE", props)
 
     const [editing, setEditing] = useState(false)
     const [userToEdit, setUserToEdit] = useState({})

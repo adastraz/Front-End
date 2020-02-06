@@ -5,7 +5,7 @@ const EmployeeCard = props => {
         <div>
             <div>
                 <h1>{props.item.name}</h1>
-                <img src={props.item.imgUrl}/>
+                <img src={props.item.imgUrl} alt='company or employer'/>
             </div>
             <h1>{props.item.industry}</h1>
             <h1>{props.item.experience}</h1>

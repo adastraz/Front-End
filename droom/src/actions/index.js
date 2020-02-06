@@ -42,7 +42,10 @@ export const newEmployer = (thing) => dispatch => {
             .then(res => {
                 dispatch({ type: LOGIN, payload: res.data})
                 localStorage.setItem('token', res.data.token)
-                res.data.user.user_type ? history.push(`/users/${res.data.user.id}`) : history.push(`/companies/${res.data.user.id}`)
+                if (typeof res.data.company != "undefined") {
+                    history.push(`/companies/${res.data.company.id}`)
+                }
+                history.push(`/users/${res.data.user.id}`)
             })
             .catch(err => {
                 dispatch({ type: FETCHING_ERROR, payload: err.data })
@@ -65,7 +68,6 @@ export const fetchCompany= (id) => dispatch => {
     axios
         .get(`https://dry-mesa-00229.herokuapp.com/api/companies/${id}`)
             .then(res => {
-                
                 dispatch({ type: NEW_EMPLOYER, payload: res.data})
             })
             .catch(err => {
