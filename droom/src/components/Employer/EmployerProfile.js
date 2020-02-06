@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 import {editCompany, fetchCompany, deleteCompany} from '../../actions'
 import {useParams} from 'react-router-dom'
-import Header from '../Header'
+import EmployerHeader from './EmployerHeader'
 
 const EmployerProfile = props => {
     console.log("I AM A PROPS FROM EMPLOYER PROFILE", props)
@@ -36,7 +36,7 @@ const EmployerProfile = props => {
 
     return (
         <>
-            <Header />
+            <EmployerHeader id={id} />
             <div>
                 <button onClick={editCompany}>Edit</button>
                 <button onClick={deleteU}>Delete</button>

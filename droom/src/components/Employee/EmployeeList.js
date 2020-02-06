@@ -8,7 +8,7 @@ import {
     CarouselControl,
     CarouselIndicators
   } from 'reactstrap';
-import Header from '../Header'
+import EmployeeHeader from './EmployeeHeader'
 
 const EmployeeList = props => {
 
@@ -52,7 +52,7 @@ const EmployeeList = props => {
     
     return(
         <div>
-        <Header />
+        <EmployeeHeader />
         <Carousel
         interval={false}
         activeIndex={activeIndex}

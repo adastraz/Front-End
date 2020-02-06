@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 import {editUser, fetchUser, deleteUser} from '../../actions'
 import {useParams} from 'react-router-dom'
-import Header from '../Header'
+import EmployeeHeader from './EmployeeHeader'
 
 
 const EmployeeProfile = props => {
@@ -38,7 +38,7 @@ const EmployeeProfile = props => {
 
     return (
         <>
-            <Header />
+            <EmployeeHeader id={id} />
             <div>
                 <button onClick={editUser}>Edit</button>
                 <button onClick={deleteU}>Delete</button>
