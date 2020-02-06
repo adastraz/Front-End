@@ -15,7 +15,7 @@ export const newEmployee = (thing) => dispatch => {
         .post('https://dry-mesa-00229.herokuapp.com/api/register/user', thing)
             .then(res => {
                 dispatch ({ type: NEW_EMPLOYEE, payload: res.data })
-                history.push(`/users/${res.data.id}`)
+                history.push(`/signin`)
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.data })
@@ -28,7 +28,7 @@ export const newEmployer = (thing) => dispatch => {
         .post('https://dry-mesa-00229.herokuapp.com/api/register/company', thing)
             .then(res => {
                 dispatch ({ type: NEW_EMPLOYER, payload: res.data })
-                history.push(`/companies/${res.data.id}`)
+                history.push(`/signin`)
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.data })
@@ -42,7 +42,11 @@ export const newEmployer = (thing) => dispatch => {
             .then(res => {
                 dispatch({ type: LOGIN, payload: res.data})
                 localStorage.setItem('token', res.data.token)
-                res.data.user.user_type ? history.push(`/users/${res.data.user.id}`) : history.push(`/companies/${res.data.user.id}`)
+                if (!!+res.data.company.user_type === false) {
+                   history.push(`/companies/${res.data.company.id}`) 
+                } else if (!!+res.data.user.user_type === true){
+                    history.push(`/users/${res.data.user.id}`)
+                }   
             })
             .catch(err => {
                 dispatch({ type: FETCHING_ERROR, payload: err.data })
@@ -51,7 +55,7 @@ export const newEmployer = (thing) => dispatch => {
  export const fetchUser = (id) => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth()
-        .get(`https://dry-mesa-00229.herokuapp.com/api/users/${id}`)
+        .get(`/api/users/${id}`)
             .then(res => {
                 dispatch({ type: NEW_EMPLOYEE, payload: res.data})
             })
@@ -62,8 +66,8 @@ export const newEmployer = (thing) => dispatch => {
 
 export const fetchCompany= (id) => dispatch => {
     dispatch({ type: FETCHING_START })
-    axios
-        .get(`https://dry-mesa-00229.herokuapp.com/api/companies/${id}`)
+    axiosWithAuth()
+        .get(`/api/companies/${id}`)
             .then(res => {
                 
                 dispatch({ type: NEW_EMPLOYER, payload: res.data})
