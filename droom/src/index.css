@@ -2,3 +2,10 @@ body {
     font-family: 'Playfair Display SC', serif;
     font-family: 'Capriola', sans-serif;
 }
+
+.footerTop {
+    background-color: "#b5b5b5";
+    padding: "2rem 3rem .5rem 3rem";
+    display: 'flex';
+    justify-content: 'space-evenly'
+}
