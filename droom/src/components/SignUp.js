@@ -61,13 +61,13 @@ function SignUp(props) {
                 type="checkbox"
                 name="user_type"
                 onChange={handleCheckboxChanges}
-                checked={user.usertype}
+                checked={user.user_type}
             />
             
             <button 
                 type="submit"
                 onClick={() => 
-                    user.usertype ? props.history.push('/employerreg', user) : props.history.push('/employeereg', user)}>
+                    user.user_type ? props.history.push('/employeereg', user) : props.history.push('/employerreg', user)}>
                 Sign Up</button>
         </form>
 

@@ -22,7 +22,6 @@ function SignIn(props) {
     //on submit
     const submitForm = e => {
         e.preventDefault();
-     
         props.login(user)
         //react 2 handle posting/etc
     }

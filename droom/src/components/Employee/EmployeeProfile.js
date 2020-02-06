@@ -3,14 +3,6 @@ import {connect} from 'react-redux'
 import {editUser, fetchUser, deleteUser} from '../../actions'
 import {useParams} from 'react-router-dom'
 
-//         "user_id": 1,
-//         "first_name": "Jonathan",
-//         "last_name": "Chen",
-//         "occupation": "Student",
-//         "experience": "Years of Java programming",
-//         "interest": "Coding, cooking, backpacking"
-
-
 
 const EmployeeProfile = props => {
     console.log("I AM A PROPS FROM EMPLOYEE PROFILE", props.user)
@@ -23,11 +15,7 @@ const EmployeeProfile = props => {
     
     useEffect(() => {
         props.fetchUser(id);
-        
     }, [])
-    
-    
-    
     
     const editUser = () => {
         setEditing(true);
@@ -56,51 +44,51 @@ const EmployeeProfile = props => {
             <div>
                 {/* <img src={props.user.user.imgUrl}/> */}
                 <h1>{props.user.name}</h1>
-           </div> 
-           <div>
+            </div> 
+            <div>
                 <h2>{props.user.industry}</h2>
                 <h2>{props.user.experience}</h2>
-           </div>
-           {editing && (
-        <form onSubmit={saveEdit}>
-          <legend>edit user</legend>
-          <label>
-            Name:
-            <input
-              onChange={handleChange}
-              value={userToEdit.name}
-              name="name"
-            />
-          </label>
-          <label>
-            Image:
-            <input
-              onChange={handleChange}
-              name="imgUrl"
-              value={userToEdit.imgUrl}
-            />
-          </label>
-          <label>
-            Industry:
-            <input
-              onChange={handleChange}
-              name="industry"
-              value={userToEdit.industry}
-            />
-          </label>
-          <label>
-            Experience:
-            <input
-              onChange={handleChange}
-              name="experience"
-              value={userToEdit.experience}
-            />
-          </label>
-          <div className="button-row">
-            <button type="submit">save</button>
-            <button onClick={() => setEditing(false)}>cancel</button>
-          </div>
-        </form>
+            </div>
+            {editing && (
+                <form onSubmit={saveEdit}>
+                    <legend>edit user</legend>
+                    <label>
+                        Name:
+                        <input
+                            onChange={handleChange}
+                            value={userToEdit.name}
+                            name="name"
+                        />
+                    </label>
+                    <label>
+                        Image:
+                        <input
+                            onChange={handleChange}
+                            name="imgUrl"
+                            value={userToEdit.imgUrl}
+                        />
+                    </label>
+                    <label>
+                        Industry:
+                        <input
+                            onChange={handleChange}
+                            name="industry"
+                            value={userToEdit.industry}
+                        />
+                    </label>
+                    <label>
+                        Experience:
+                        <input
+                            onChange={handleChange}
+                            name="experience"
+                            value={userToEdit.experience}
+                        />
+                    </label>
+                <div className="button-row">
+                    <button type="submit">save</button>
+                    <button onClick={() => setEditing(false)}>cancel</button>
+                </div>
+            </form>
       )}
         </>
     )
