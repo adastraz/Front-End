@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
-import {newEmployee} from '../actions'
 
 function SignUp(props) {
 
@@ -12,7 +11,7 @@ function SignUp(props) {
 
     //handle any changes made to inputs username/password in the form
     const handleChanges = event => {
-        console.log("User: ", user);
+        console.log("User handle changes: ", user);
         setUser({
             ...user,
             [event.target.name]: event.target.value
@@ -21,8 +20,7 @@ function SignUp(props) {
 
     //handle changes made to employer checkbox in the form
     const handleCheckboxChanges = event => {
-        console.log("User: ", user);
-
+        console.log("User checkbox: ", user);
         setUser({
             ...user,
             [event.target.name]: event.target.checked
@@ -45,7 +43,6 @@ function SignUp(props) {
                 onChange={handleChanges}
                 value={user.username}
             />
-
             <label htmlFor="password">Password: </label>
             <input 
                 id="password"
@@ -54,21 +51,20 @@ function SignUp(props) {
                 onChange={handleChanges}
                 value={user.password}
             />
-
             <label htmlFor="user_type">Are you looking for a job?</label>
             <input
                 id="user_type"
                 type="checkbox"
                 name="user_type"
                 onChange={handleCheckboxChanges}
-                checked={user.usertype}
+                checked={user.user_type}
             />
-            
             <button 
                 type="submit"
                 onClick={() => 
-                    user.usertype ? props.history.push('/employerreg', user) : props.history.push('/employeereg', user)}>
-                Sign Up</button>
+                    user.user_type ? props.history.push('/employeereg', user) : props.history.push('/employerreg', user)}>
+                        Sign Up
+            </button>
         </form>
 
     );

@@ -4,7 +4,6 @@ import {newEmployer} from '../../actions'
 
 const EmployerRegForm = props => {
 
-
     const [employerUser, setEmployerUser] = useState({
         company_name: "",
         description: "",
@@ -14,8 +13,6 @@ const EmployerRegForm = props => {
         openPositions: ""
     });
 
-
-    //handle any changes made to inputs in the form
     const handleChanges = event => {
         console.log("User: ", employerUser);
         setEmployerUser({
@@ -24,14 +21,10 @@ const EmployerRegForm = props => {
         });
     };
 
-
-    //on submit
     const submitForm = event => {
         event.preventDefault();
         props.newEmployer({...employerUser, ...props.location.state})
         console.log("User to submit: ", employerUser);
-        
-        //react 2 handle posting/etc
     }
 
     return (

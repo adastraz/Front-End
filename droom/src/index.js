@@ -11,7 +11,7 @@ import './index.css';
 
 import {reducer} from './reducers'
 
-const store = createStore(reducer, applyMiddleware(thunk,logger))
+const store = createStore(reducer, applyMiddleware(thunk, logger))
 
 ReactDOM.render(
     <Provider store={store}>

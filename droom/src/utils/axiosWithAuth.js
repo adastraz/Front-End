@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const axiosWithAuth = () => {
     return axios.create({
         //config object

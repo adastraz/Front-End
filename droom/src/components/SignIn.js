@@ -12,27 +12,15 @@ function SignIn(props) {
 
     //handle any changes made to inputs username/password in the form
     const handleChanges = event => {
-        console.log("User: ", user);
         setUser({
             ...user,
             [event.target.name]: event.target.value
         });
     };
 
-    //handle changes made to employer checkbox in the form
-    const handleCheckboxChanges = event => {
-        console.log("User: ", user);
-
-        setUser({
-            ...user,
-            [event.target.name]: event.target.checked
-        });
-    }
-
     //on submit
     const submitForm = e => {
         e.preventDefault();
-        console.log("User to submit: ", user);
         props.login(user)
         //react 2 handle posting/etc
     }

@@ -1,21 +1,11 @@
 import {
     FETCHING_START,
     FETCHING_ERROR,
-    NEW_EMPLOYEE,
-    NEW_EMPLOYER,
-    FETCHING_USER_SUCCESS,
-    FETCHING_USER,
-    FETCHING_COMPANY,
-    FETCHING_COMPANY_SUCCESS,
-    FETCHING_USER_FAILURE,
-    FETCHING_COMPANY_FAILURE,
-    FETCHING_COMPANYARRAY_FAILURE,
+    EMPLOYEE,
+    EMPLOYER,
     FETCHING_COMPANYARRAY_SUCCESS,
-    FETCHING_USERARRAY_FAILURE,
     FETCHING_USERARRAY_SUCCESS,
-    FETCHING_USERARRAY,
-    FETCHING_COMPANYARRAY,
-    LOGIN
+    LOGIN,
   } from '../actions'
 
   const initialState = {
@@ -29,101 +19,55 @@ export const reducer = (state = initialState, action) => {
     console.log("action.type: " + action.type);
     switch(action.type){
         case FETCHING_START:
+            console.log("FETCHING START ACTION", action.payload)
             return {
                 ...state,
                 isLoading: true,
                 error: null
             }
         case FETCHING_ERROR:
+            console.log("ERROR ACTION", action.payload)
             return{
                 ...state,
                 error: action.payload,
                 isLoading: false
             }
-        case NEW_EMPLOYER:
+        case EMPLOYER:
+            console.log("EMPLOYER ACTION", action.payload)
             return {
                 ...state,
                 user: action.payload,
-                isLoading: false
+                isLoading: false,
+                error: null
             }
-        case FETCHING_USER:
-            return{
-                ...state,
-                isLoading: true,
-            }
-        case FETCHING_COMPANY:
-            return{
-                ...state,
-                isLoading: true,
-            }
-        case FETCHING_COMPANY_FAILURE:
-            return{
-                ...state,
-                error: action.payload,
-                isLoading: false
-            }
-        case FETCHING_USER_FAILURE:
-            return{
-                ...state,
-                error: action.payload,
-                isLoading: false
-            }
-        case NEW_EMPLOYEE:
+        case EMPLOYEE:
+            console.log("EMPLOYEE ACTION", action.payload)
             return {
                 ...state,
                 user: action.payload,
-                isLoading: false
+                isLoading: false,
+                error: null
                 }
-        case FETCHING_USER_SUCCESS:
-            return {
+        case LOGIN: 
+            console.log("LOGIN ACTION", action.payload)
+            return{
                 ...state,
                 user: action.payload,
-                isLoading: false
-            }
-        case FETCHING_COMPANY_SUCCESS:
-            return{
-                ...state,
-                user:action.payload,
-                isLoading: false
-            }
-        case LOGIN: 
-        return{
-            ...state,
-            user: action.payload,
-            isLoading: false
-            }
-        case FETCHING_USERARRAY:
-            return{
-                ...state,
-                isLoading: true
+                isLoading: false,
+                error: null
             }
         case FETCHING_USERARRAY_SUCCESS:
             return{
                 ...state,
                 array: action.payload,
-                isLoading: false
-            }
-        case FETCHING_USERARRAY_FAILURE:
-            return{
-                ...state,
                 isLoading: false,
-                error: action.payload
-            }
-        case FETCHING_COMPANYARRAY:
-            return{
-                ...state,
-                isLoading: true
+                error: null
             }
         case FETCHING_COMPANYARRAY_SUCCESS:
             return {
                 ...state,
-                array: action.payload
-            }
-        case FETCHING_COMPANYARRAY_FAILURE:
-            return {
-                ...state,
-                isLoading: false,
-                error: action.payload
+                array: action.payload,
+                error: null
             }
         default:
             return state
