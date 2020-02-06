@@ -12,7 +12,6 @@ function SignIn(props) {
 
     //handle any changes made to inputs username/password in the form
     const handleChanges = event => {
-      
         setUser({
             ...user,
             [event.target.name]: event.target.value

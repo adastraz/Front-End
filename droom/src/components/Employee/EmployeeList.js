@@ -34,24 +34,22 @@ const EmployeeList = props => {
 
     const slides = props.array.map((item) => {
         return (
-          <CarouselItem
-            onExiting={() => setAnimating(true)}
-            onExited={() => setAnimating(false)}
-            key={item.src}
-          >
-            <EmployerCard item={item} />
-            
-        
-          </CarouselItem>
+            <CarouselItem
+                onExiting={() => setAnimating(true)}
+                onExited={() => setAnimating(false)}
+                key={item.src}
+            >
+                <EmployerCard item={item} />
+            </CarouselItem>
         );
-      });
-
-
+    });
+    
     useEffect(() => {
         props.fetchCompanyArray()
     }, [])
 
-    console.log(props.array)
+    console.log('PROPS.ARRAY IN EMPLOYEE PROFILE', props.array)
+    
     return(
         <Carousel
             interval={false}

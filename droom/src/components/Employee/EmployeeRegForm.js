@@ -11,25 +11,21 @@ const EmployeeRegForm = props => {
         imgUrl: ""
     });
 
-
-    //handle any changes made to inputs in the form
     const handleChanges = e => {
-        console.log("User: ", employeeUser);
+        console.log("User handle changes: ", employeeUser);
         setEmployeeUser({
             ...employeeUser,
             [e.target.name]: e.target.value
         });
     };
 
-
-    //on submit
     const submitForm = e => {
         e.preventDefault();
         console.log("User to submit: ", employeeUser);
         props.newEmployee({...employeeUser, ...props.location.state})
-        //react 2 handle posting/etc
     }
-    console.log('isloading console', props.isLoading)
+
+    console.log('isloading', props.isLoading)
     return (
         <form onSubmit={submitForm}>
             <label htmlFor="name">Name: </label>
@@ -64,7 +60,6 @@ const EmployeeRegForm = props => {
                 onChange={handleChanges}
                 value={employeeUser.imgUrl}
             />
-
             <button type="submit">Create Account</button>
         </form>
     )

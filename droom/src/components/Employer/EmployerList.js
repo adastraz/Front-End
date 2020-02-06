@@ -38,8 +38,6 @@ const EmployerList = props => {
             key={item.src}
           >
             <EmployeeCard item={item} />
-            
-        
           </CarouselItem>
         );
       });

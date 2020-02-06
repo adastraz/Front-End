@@ -21,7 +21,6 @@ const EmployerCard = props => {
                 <p>{props.item.industry}</p>
                 <p>{props.openPositions}</p>
             </div>
-
         </div>
     )
 }

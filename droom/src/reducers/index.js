@@ -19,12 +19,14 @@ export const reducer = (state = initialState, action) => {
     console.log("action.type: " + action.type);
     switch(action.type){
         case FETCHING_START:
+            console.log("FETCHING START ACTION", action.payload)
             return {
                 ...state,
                 isLoading: true,
                 error: null
             }
         case FETCHING_ERROR:
+            console.log("ERROR ACTION", action.payload)
             return{
                 ...state,
                 error: action.payload,
@@ -35,34 +37,38 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 user: action.payload,
-                isLoading: false
+                isLoading: false,
+                error: null
             }
         case NEW_EMPLOYEE:
             console.log("EMPLOYEE ACTION", action.payload)
             return {
                 ...state,
                 user: action.payload,
-                isLoading: false
+                isLoading: false,
+                error: null
                 }
         case LOGIN: 
-        console.log("LOGIN ACTION", action.payload)
-        return{
-            ...state,
-            user: action.payload,
-            isLoading: false
+            console.log("LOGIN ACTION", action.payload)
+            return{
+                ...state,
+                user: action.payload,
+                isLoading: false,
+                error: null
             }
         case FETCHING_USERARRAY_SUCCESS:
             return{
                 ...state,
                 array: action.payload,
-                isLoading: false
+                isLoading: false,
+                error: null
             }
         case FETCHING_COMPANYARRAY_SUCCESS:
             return {
                 ...state,
-                array: action.payload
+                array: action.payload,
+                error: null
             }
-        
         default:
             return state
     }

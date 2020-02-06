@@ -34,7 +34,7 @@ export const newEmployer = (thing) => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.data })
             })
 }
- export const login = (thing) => dispatch => {
+export const login = (thing) => dispatch => {
      console.log('LOGIN RESPONSE', thing)
      dispatch ({ type: FETCHING_START })
      axios
@@ -51,7 +51,7 @@ export const newEmployer = (thing) => dispatch => {
                 dispatch({ type: FETCHING_ERROR, payload: err.data })
             })
  }
- export const fetchUser = (id) => dispatch => {
+export const fetchUser = (id) => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth()
         .get(`/api/users/${id}`)
@@ -62,7 +62,6 @@ export const newEmployer = (thing) => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
             })
 }
-
 export const fetchCompany= (id) => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth()
@@ -74,7 +73,6 @@ export const fetchCompany= (id) => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
             })
 }
-
 export const fetchCompanyArray = () => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth()
@@ -86,7 +84,6 @@ export const fetchCompanyArray = () => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
             })
 }
-
 export const fetchUserArray = () => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth()
@@ -99,7 +96,6 @@ export const fetchUserArray = () => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
             })
 }
-
 export const editUser = (user, id) => dispatch => {
     dispatch({ type: FETCHING_START })
     console.log("EDIT USER, user", user)
@@ -113,7 +109,6 @@ export const editUser = (user, id) => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
             })
 }
-
 export const editCompany = (company, id) => dispatch => {
     dispatch({ type: FETCHING_START })
     console.log("EDIT USER, user", company)
@@ -127,7 +122,6 @@ export const editCompany = (company, id) => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
             })
 }
-
 export const deleteUser = (id) => dispatch => {
     dispatch({ type: FETCHING_START})
     axiosWithAuth()
@@ -140,7 +134,6 @@ export const deleteUser = (id) => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
             })
 } 
-
 export const deleteCompany = (id) => dispatch => {
     dispatch({ type: FETCHING_START})
     axiosWithAuth()
