@@ -15,7 +15,7 @@ export const newEmployee = (thing) => dispatch => {
         .post('https://dry-mesa-00229.herokuapp.com/api/register/user', thing)
             .then(res => {
                 dispatch ({ type: NEW_EMPLOYEE, payload: res.data })
-                history.push(`/users/${res.data.id}`)
+                history.push(`/signin`)
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.data })
@@ -28,7 +28,7 @@ export const newEmployer = (thing) => dispatch => {
         .post('https://dry-mesa-00229.herokuapp.com/api/register/company', thing)
             .then(res => {
                 dispatch ({ type: NEW_EMPLOYER, payload: res.data })
-                history.push(`/companies/${res.data.id}`)
+                history.push(`/signin`)
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.data })
@@ -54,7 +54,7 @@ export const newEmployer = (thing) => dispatch => {
  export const fetchUser = (id) => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth()
-        .get(`https://dry-mesa-00229.herokuapp.com/api/users/${id}`)
+        .get(`/api/users/${id}`)
             .then(res => {
                 dispatch({ type: NEW_EMPLOYEE, payload: res.data})
             })
@@ -65,8 +65,8 @@ export const newEmployer = (thing) => dispatch => {
 
 export const fetchCompany= (id) => dispatch => {
     dispatch({ type: FETCHING_START })
-    axios
-        .get(`https://dry-mesa-00229.herokuapp.com/api/companies/${id}`)
+    axiosWithAuth()
+        .get(`/api/companies/${id}`)
             .then(res => {
                 dispatch({ type: NEW_EMPLOYER, payload: res.data})
             })
