@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
-import {fetchUser} from '../../actions'
+import {editUser, fetchUser, deleteUser} from '../../actions'
+import {useParams} from 'react-router-dom'
 
 //         "user_id": 1,
 //         "first_name": "Jonathan",
@@ -12,25 +13,95 @@ import {fetchUser} from '../../actions'
 
 
 const EmployeeProfile = props => {
-
-    console.log(props.user.user)
-
-    const user = props.user.user
+    console.log("I AM A PROPS FROM EMPLOYEE PROFILE", props.user)
+   
+    const [editing, setEditing] = useState(false)
+    const [userToEdit, setUserToEdit] = useState({})
     
+    
+    let {id} = useParams();
+    
+    useEffect(() => {
+        props.fetchUser(id);
+        
+    }, [])
+    
+    
+    
+    
+    const editUser = () => {
+        setEditing(true);
+    };
+    
+    const saveEdit = e => {
+        e.preventDefault();
+        props.editUser(userToEdit, id)
+        setEditing(false)
+    }
+    
+    const handleChange = e => {
+        setUserToEdit({...userToEdit, [e.target.name]: e.target.value})
+    }
+    
+    const deleteU = () => {
+        props.deleteUser(id)
+    }
+
     return (
         <>
             <div>
-                <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={editUser}>Edit</button>
+                <button onClick={deleteU}>Delete</button>
             </div>
             <div>
-                <img src={user.imgurl}/>
-                <h1>{user.name}</h1>
+                {/* <img src={props.user.user.imgUrl}/> */}
+                <h1>{props.user.name}</h1>
            </div> 
            <div>
-                <h2>{user.industry}</h2>
-                <h2>{user.experience}</h2>
+                <h2>{props.user.industry}</h2>
+                <h2>{props.user.experience}</h2>
            </div>
+           {editing && (
+        <form onSubmit={saveEdit}>
+          <legend>edit user</legend>
+          <label>
+            Name:
+            <input
+              onChange={handleChange}
+              value={userToEdit.name}
+              name="name"
+            />
+          </label>
+          <label>
+            Image:
+            <input
+              onChange={handleChange}
+              name="imgUrl"
+              value={userToEdit.imgUrl}
+            />
+          </label>
+          <label>
+            Industry:
+            <input
+              onChange={handleChange}
+              name="industry"
+              value={userToEdit.industry}
+            />
+          </label>
+          <label>
+            Experience:
+            <input
+              onChange={handleChange}
+              name="experience"
+              value={userToEdit.experience}
+            />
+          </label>
+          <div className="button-row">
+            <button type="submit">save</button>
+            <button onClick={() => setEditing(false)}>cancel</button>
+          </div>
+        </form>
+      )}
         </>
     )
 }
@@ -43,4 +114,4 @@ const EmployeeProfile = props => {
      }
  }
 
- export default connect(mapStateToProps, {fetchUser})(EmployeeProfile)
+ export default connect(mapStateToProps, {deleteUser,fetchUser, editUser})(EmployeeProfile)

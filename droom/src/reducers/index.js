@@ -5,7 +5,8 @@ import {
     NEW_EMPLOYER,
     FETCHING_COMPANYARRAY_SUCCESS,
     FETCHING_USERARRAY_SUCCESS,
-    LOGIN
+    LOGIN,
+    
   } from '../actions'
 
   const initialState = {
@@ -37,6 +38,7 @@ export const reducer = (state = initialState, action) => {
                 isLoading: false
             }
         case NEW_EMPLOYEE:
+            console.log("ACTION", action.payload)
             return {
                 ...state,
                 user: action.payload,
@@ -59,6 +61,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 array: action.payload
             }
+        
         default:
             return state
     }
