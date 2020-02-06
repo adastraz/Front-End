@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {connect} from 'react-redux'
 import {login} from '../actions'
 import {Link} from 'react-router-dom'
+import HeaderWelcome from './HeaderWelcome'
 
 function SignIn(props) {
 
@@ -26,26 +27,29 @@ function SignIn(props) {
     }
 
     return (
-        <form onSubmit={submitForm}>
-            <label htmlFor="username">Username: </label>
-            <input 
-                id="username"
-                type="text"
-                name="username"
-                onChange={handleChanges}
-                value={user.username}
-            />
-            <label htmlFor="password">Password: </label>
-            <input 
-                id="password"
-                type="password"
-                name="password"
-                onChange={handleChanges}
-                value={user.password}
-            />
-            <button type="submit">Sign In</button>
-            <Link to='/signup' >I don't have an account</Link> 
-        </form>
+        <div>
+            <HeaderWelcome />
+            <form onSubmit={submitForm}>
+                <label htmlFor="username">Username: </label>
+                <input 
+                    id="username"
+                    type="text"
+                    name="username"
+                    onChange={handleChanges}
+                    value={user.username}
+                    />
+                <label htmlFor="password">Password: </label>
+                <input 
+                    id="password"
+                    type="password"
+                    name="password"
+                    onChange={handleChanges}
+                    value={user.password}
+                    />
+                <button type="submit">Sign In</button>
+                <Link to='/signup' >I don't have an account</Link> 
+            </form>
+        </div>
     );
 }
 

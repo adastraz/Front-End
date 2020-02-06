@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
+import HeaderWelcome from './HeaderWelcome'
 
 function SignUp(props) {
 
@@ -34,6 +35,9 @@ function SignUp(props) {
     }
 
     return (
+        <div>
+
+        <HeaderWelcome />
         <form onSubmit={submitForm}>
             <label htmlFor="username">Username: </label>
             <input 
@@ -42,7 +46,7 @@ function SignUp(props) {
                 name="username"
                 onChange={handleChanges}
                 value={user.username}
-            />
+                />
             <label htmlFor="password">Password: </label>
             <input 
                 id="password"
@@ -50,7 +54,7 @@ function SignUp(props) {
                 name="password"
                 onChange={handleChanges}
                 value={user.password}
-            />
+                />
             <label htmlFor="user_type">Are you looking for a job?</label>
             <input
                 id="user_type"
@@ -58,7 +62,7 @@ function SignUp(props) {
                 name="user_type"
                 onChange={handleCheckboxChanges}
                 checked={user.user_type}
-            />
+                />
             <button 
                 type="submit"
                 onClick={() => 
@@ -67,6 +71,7 @@ function SignUp(props) {
             </button>
         </form>
 
+        </div>
     );
 }
 

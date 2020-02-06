@@ -8,6 +8,7 @@ import {
     CarouselControl,
     CarouselIndicators
   } from 'reactstrap';
+import Header from '../Header'
 
 const EmployerList = props => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -47,17 +48,20 @@ const EmployerList = props => {
     },[])
     console.log(props.array)
     return(
-        <Carousel
-            interval={false}
-            activeIndex={activeIndex}
-            next={next}
-            previous={previous}
-        >
-        <CarouselIndicators items={props.array} activeIndex={activeIndex} onClickHandler={goToIndex} />
-            {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl  direction="next" directionText="Next" onClickHandler={next} />
-    </Carousel>
+        <div>
+            <Header />
+            <Carousel
+                interval={false}
+                activeIndex={activeIndex}
+                next={next}
+                previous={previous}
+                >
+                <CarouselIndicators items={props.array} activeIndex={activeIndex} onClickHandler={goToIndex} />
+                    {slides}
+                <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+                <CarouselControl  direction="next" directionText="Next" onClickHandler={next} />
+            </Carousel>
+        </div>
     )
 }
 

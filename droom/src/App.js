@@ -10,7 +10,7 @@ import EmployerProfile from './components/Employer/EmployerProfile'
 import EmployerList from './components/Employer/EmployerList'
 import EmployeeList from './components/Employee/EmployeeList';
 import history from './utils/history'
-//import EmployerProfile from './components/Employer/EmployerProfile';
+import PrivateRoute from './components/PrivateRoute'
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -19,7 +19,6 @@ function App() {
   return (
     <Router history={history}>
       <div className="App">
-        <Header/>
         <Switch>
           <Route path='/listcompanies' component={EmployeeList} /> 
           <Route path='/list' component={EmployerList} /> {/*Private*/}
