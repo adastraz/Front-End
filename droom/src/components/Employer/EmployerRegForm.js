@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { newEmployer } from '../../actions'
 import HeaderWelcome from '../HeaderWelcome'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 const EmployerRegForm = props => {
 
@@ -31,57 +32,65 @@ const EmployerRegForm = props => {
     return (
         <div>
             <HeaderWelcome />
-            <form onSubmit={submitForm}>
-                <label htmlFor="companyName">Company Name: </label>
-                <input 
-                    id="companyName"
-                    type="text"
-                    name="company_name"
-                    onChange={handleChanges}
-                    value={employerUser.company_name}
-                    />
-                <label htmlFor="description">Company Description: </label>
-                <input 
-                    id="description"
-                    type="textarea"
-                    name="description"
-                    onChange={handleChanges}
-                    value={employerUser.description}
-                    />
-                <label htmlFor="industry">Industry: </label>
-                <input 
-                    id="industry"
-                    type="text"
-                    name="industry"
-                    onChange={handleChanges}
-                    value={employerUser.industry}
-                    />
-                <label htmlFor="missionStatement">Mission Statement: </label>
-                <input 
-                    id="missionStatement"
-                    type="text"
-                    name="mission_statement"
-                    onChange={handleChanges}
-                    value={employerUser.mission_statement}
-                    />
-                <label htmlFor="imgUrl">Image: </label>
-                <input 
-                    id="imgUrl"
-                    type="text"
-                    name="imgUrl"
-                    onChange={handleChanges}
-                    value={employerUser.imgUrl}
-                    />
-                <label htmlFor="openPositions">Open Positions: </label>
-                <input 
-                    id="openPositions"
-                    type="text"
-                    name="openPositions"
-                    onChange={handleChanges}
-                    value={employerUser.openPositions}
-                    />
-                <button type="submit">Create Account</button>
-            </form>
+            <div className="formContainer">
+                <div className="signFormImagePage2">
+
+                </div>
+                <div className="signForm">
+                    <h1>Registration</h1>
+                    <Form className="form" onSubmit={submitForm}>
+                        <Label htmlFor="companyName">Company Name: </Label>
+                        <Input 
+                            id="companyName"
+                            type="text"
+                            name="company_name"
+                            onChange={handleChanges}
+                            value={employerUser.company_name}
+                            />
+                        <Label htmlFor="description">Company Description: </Label>
+                        <Input 
+                            id="description"
+                            type="textarea"
+                            name="description"
+                            onChange={handleChanges}
+                            value={employerUser.description}
+                            />
+                        <Label htmlFor="industry">Industry: </Label>
+                        <Input 
+                            id="industry"
+                            type="text"
+                            name="industry"
+                            onChange={handleChanges}
+                            value={employerUser.industry}
+                            />
+                        <Label htmlFor="missionStatement">Mission Statement: </Label>
+                        <Input 
+                            id="missionStatement"
+                            type="text"
+                            name="mission_statement"
+                            onChange={handleChanges}
+                            value={employerUser.mission_statement}
+                            />
+                        <Label htmlFor="imgUrl">Image: </Label>
+                        <Input 
+                            id="imgUrl"
+                            type="text"
+                            name="imgUrl"
+                            onChange={handleChanges}
+                            value={employerUser.imgUrl}
+                            />
+                        <Label htmlFor="openPositions">Open Positions: </Label>
+                        <Input 
+                            id="openPositions"
+                            type="text"
+                            name="openPositions"
+                            onChange={handleChanges}
+                            value={employerUser.openPositions}
+                            />
+                        <Button className="signButton" type="submit">Create Account</Button>
+                    </Form>
+                </div>
+            </div>
         </div>
     )
 }

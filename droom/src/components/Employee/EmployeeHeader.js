@@ -31,13 +31,13 @@ function EmployeeHeader(props) {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto Nav" navbar>
             <NavItem>
-              <NavLink style={{color:'white'}}href="">
-                <Link to={`/users/${props.user.id}`}>My Profile</Link>
+              <NavLink>
+                <Link className="navLink" to={`/users/${props.user.id}`}>My Profile</Link>
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink style={{color:'white'}}href="">
-                <Link to="/listcompanies">Start Matching</Link>
+              <NavLink>
+                <Link className="navLink" to="/listcompanies">Start Matching</Link>
               </NavLink>
             </NavItem>
           </Nav>

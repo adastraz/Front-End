@@ -26,13 +26,13 @@ function EmployerHeader(props) {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto Nav" navbar>
             <NavItem>
-              <NavLink style={{color:'white'}}>
-                  <Link to={`/companies/${props.user.id}`}>My Profile</Link>
+              <NavLink >
+                  <Link className="navLink" to={`/companies/${props.user.id}`}>My Profile</Link>
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink style={{color:'white'}}href="">
-                  <Link to="/list">Start Matching</Link>
+              <NavLink>
+                  <Link className="navLink" to="/list">Start Matching</Link>
               </NavLink>
             </NavItem>
           </Nav>
@@ -44,7 +44,7 @@ function EmployerHeader(props) {
 
 const mapStateToProps = state => {
     return {
-        state: state.user,
+        user: state.user,
         isLoading: state.isLoading,
         error: state.error
     }
