@@ -36,6 +36,7 @@ const EmployeeRegForm = props => {
 
                 </div>
                 <div className="signForm">
+                    <h1>Registration</h1>
                     <Form  className="form" onSubmit={submitForm}>
                         <FormGroup>
                             <Label htmlFor="name">Name: </Label>
