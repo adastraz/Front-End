@@ -19,10 +19,10 @@ function App() {
     <Router history={history}>
       <div className="App">
         <Switch>
-          <Route path='/listcompanies' component={EmployeeList} /> 
-          <Route path='/list' component={EmployerList} /> {/*Private*/}
-          <Route path='/companies/:id' component={EmployerProfile} /> {/*Private*/}
-          <Route path='/users/:id' component={EmployeeProfile} /> {/*Private*/}
+          <PrivateRoute path='/listcompanies' component={EmployeeList} /> 
+          <PrivateRoute path='/list' component={EmployerList} /> 
+          <PrivateRoute path='/companies/:id' component={EmployerProfile} /> 
+          <PrivateRoute path='/users/:id' component={EmployeeProfile} /> 
           <Route path='/employeereg' component={EmployeeRegForm} />
           <Route path='/employerreg' component={EmployerRegForm} />
           <Route path='/signup' component={SignUp} />
