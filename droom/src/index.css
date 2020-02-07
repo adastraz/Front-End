@@ -1,0 +1,299 @@
+body {
+    font-family: 'Playfair Display SC', serif;
+    font-family: 'Capriola', sans-serif;
+}
+
+/*Header*/
+.Navbar {
+    display: flex;
+    padding: .5rem 3rem .5rem 3rem;
+    background-color: #ff00f0;
+    border-bottom: 4px solid white;
+}
+
+.Nav {
+    display: flex;
+    align-items: flex-end;
+}
+
+.hamburger {
+    background-color: white;
+}
+
+.hamburger:hover {
+    border: 3px solid #3dd3e3;
+}
+
+.navLink {
+    color: white;
+    text-decoration: none;
+}
+
+.navLink:hover {
+    text-decoration: none;
+    color: #3dd3e3;
+}
+
+/*Footer*/
+.footerTop {
+    background-color: white; 
+    padding: 2rem 3rem .5rem 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 4px solid white;
+}
+
+.footerTopContent {
+    display: flex;
+}
+
+.footerTopContentDiv {
+    margin: 0 2rem 0 2rem;
+}
+
+.footerBottom {
+    background-color: #b5b5b5;
+    border-top: 1px solid grey;
+    padding: 1rem 3rem 0 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.footerBottom p {
+    margin-right: 2rem
+}
+
+
+@media (max-width: 600px) {
+
+    .footerTop {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0 2rem 0;
+    }
+    .footerTopContent {
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+    .footerTopContentDiv {
+        margin: 1rem;
+    }
+
+}
+
+/*Welcome*/
+/*https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80*/
+.welcomeContainer {
+   padding: 20rem;
+   background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   position: relative;
+
+}
+
+.welcomeCard {
+    opacity: 1;
+    border: 4px solid white;
+    margin-top: -10%;
+    background-image: linear-gradient(#3dd3e3,#0c99c1);
+    padding: 7%;
+}
+
+@media (max-width: 950px) {
+    .welcomeContainer {
+        padding: 10rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .welcomeContainer {
+        padding: 5rem;
+    }
+}
+
+.welcomeTitle {
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.welcomeLinks {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.welcomeLinks:hover {
+    text-decoration: none;
+    color: #ff00f0;
+}
+
+.welcomeButton {
+    background-color: #ff00f0;
+    margin: 2rem;
+    border: 3px solid white;
+}
+
+.welcomeButton:hover {
+    background-color: white;
+    color: #ff00f0;
+    border: 3px solid #ff00f0;
+}
+
+/*Profile*/
+.imgname {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:3%;
+}
+
+.imgname h1{
+    margin:0 2%;
+    font-weight:bold;
+    font-size: 3rem;
+    color: #3dd3e3
+
+}
+
+.imgname img{
+    margin: 0 2%;
+    max-width:200px;
+    border-radius: 30px;
+    border: 4px solid white;
+}
+
+.profiletext{
+    margin: 0 0 15px -400px;
+}
+
+.profile {
+    padding: 7%;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+}
+
+.profileimage{
+    background-image: url(https://images.unsplash.com/photo-1495652715132-7aafc87c147e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.profilecolor {
+    background-image: linear-gradient(#3dd3e3, #075d66);
+}
+
+.button{
+    margin: 5% 5% 0 5%;
+    padding:15px 25px;
+    background-color: #0c99c1;
+}
+
+.button:hover{
+    background-color:skyblue;
+}
+
+.listname{
+    margin: 0 0 0 150px;
+    padding-top: 3%;
+}
+
+.listnamediv{
+    background-color: #3dd3e3;
+}
+
+.profileCard {
+    border-radius: 20px;
+    padding: 200px 5%;
+    margin: 0 auto;
+    background-color:#ffcc00;
+    max-width: 800px;
+    border: 3px solid white;
+}
+
+/*Sign Forms*/
+.formContainer {
+    display: flex;
+}
+
+.signFormImage {
+    
+    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    width: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.signFormImagePage2 {
+    background-image: url('https://images.unsplash.com/photo-1503551723145-6c040742065b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    width: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.signForm {
+    width: 50%;
+    padding: 10rem;
+}
+
+.signButton {
+    background-color: #ff00f0;
+    border: 3px solid white;
+    margin-top: 2rem;
+}
+
+.signButton:hover {
+    background-color: white;
+    color: #ff00f0;
+    border: 3px solid #ff00f0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+   .signForm {
+       padding: 5rem;
+   }
+    
+}
+
+@media (max-width: 650px) {
+    
+    .signFormImage {
+        display: none;
+    }
+    .signFormImagePage2 {
+        display: none;
+    }
+     .signForm {
+         padding: 2rem 0 2rem 0;
+     }
+     .formContainer {
+         justify-content: center;
+     }
+ }
+
+ .noAccountLink {
+     text-decoration: none;
+     color: black;
+     text-align: center;
+     margin-top: 2rem;
+ }
+
+ .noAccountLink:hover {
+     text-decoration: none;
+     color: #ff00f0;
+ }
