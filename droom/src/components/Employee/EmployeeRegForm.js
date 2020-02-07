@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import {newEmployee} from '../../actions'
 import HeaderWelcome from '../HeaderWelcome'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 const EmployeeRegForm = props => {
 
@@ -30,41 +31,56 @@ const EmployeeRegForm = props => {
     return (
         <div>
             <HeaderWelcome />
-            <form onSubmit={submitForm}>
-                <label htmlFor="name">Name: </label>
-                <input 
-                    id="name"
-                    type="text"
-                    name="name"
-                    onChange={handleChanges}
-                    value={employeeUser.name}
-                    />
-                <label htmlFor="industry">Industry: </label>
-                <input 
-                    id="industry"
-                    type="text"
-                    name="industry"
-                    onChange={handleChanges}
-                    value={employeeUser.industry}
-                    />
-                <label htmlFor="experience">Experience: </label>
-                <input 
-                    id="experience"
-                    type="text" //may need to add textarea later
-                    name="experience"
-                    onChange={handleChanges}
-                    value={employeeUser.experience}
-                    />
-                <label htmlFor="imgUrl">Image: </label>
-                <input 
-                    id="imgUrl"
-                    type="text"
-                    name="imgUrl"
-                    onChange={handleChanges}
-                    value={employeeUser.imgUrl}
-                    />
-                <button type="submit">Create Account</button>
-            </form>
+            <div className="formContainer">
+                <div className="signFormImagePage2">
+
+                </div>
+                <div className="signForm">
+                    <Form  className="form" onSubmit={submitForm}>
+                        <FormGroup>
+                            <Label htmlFor="name">Name: </Label>
+                            <Input 
+                                id="name"
+                                type="text"
+                                name="name"
+                                onChange={handleChanges}
+                                value={employeeUser.name}
+                                />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="industry">Industry: </Label>
+                            <Input 
+                                id="industry"
+                                type="text"
+                                name="industry"
+                                onChange={handleChanges}
+                                value={employeeUser.industry}
+                                />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="experience">Experience: </Label>
+                            <Input 
+                                id="experience"
+                                type="text" //may need to add textarea later
+                                name="experience"
+                                onChange={handleChanges}
+                                value={employeeUser.experience}
+                                />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="imgUrl">Image: </Label>
+                            <Input 
+                                id="imgUrl"
+                                type="text"
+                                name="imgUrl"
+                                onChange={handleChanges}
+                                value={employeeUser.imgUrl}
+                                />
+                        </FormGroup>
+                        <Button className="signButton" type="submit">Create Account</Button>
+                    </Form>
+                </div>
+            </div>
         </div>
     )
 }
