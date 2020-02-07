@@ -44,7 +44,7 @@ function EmployerHeader(props) {
 
 const mapStateToProps = state => {
     return {
-        state: state.user,
+        user: state.user,
         isLoading: state.isLoading,
         error: state.error
     }

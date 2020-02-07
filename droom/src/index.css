@@ -231,6 +231,15 @@ body {
     position: relative;
 }
 
+.signFormImagePage2 {
+    background-image: url('https://images.unsplash.com/photo-1503551723145-6c040742065b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    width: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
 .signForm {
     width: 50%;
     padding: 10rem;
@@ -264,6 +273,9 @@ body {
 @media (max-width: 650px) {
     
     .signFormImage {
+        display: none;
+    }
+    .signFormImagePage2 {
         display: none;
     }
      .signForm {
