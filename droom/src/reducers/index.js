@@ -6,6 +6,7 @@ import {
     FETCHING_COMPANYARRAY_SUCCESS,
     FETCHING_USERARRAY_SUCCESS,
     LOGIN,
+    LOGOUT,
   } from '../actions'
 
   const initialState = {
@@ -55,6 +56,12 @@ export const reducer = (state = initialState, action) => {
                 user: action.payload,
                 isLoading: false,
                 error: null
+            }
+        case LOGOUT: 
+            return{
+                ...state,
+                user:{},
+                error:null
             }
         case FETCHING_USERARRAY_SUCCESS:
             return{

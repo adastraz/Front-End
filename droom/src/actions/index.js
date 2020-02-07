@@ -8,6 +8,7 @@ export const LOGIN = 'LOGIN';
 export const EMPLOYER = 'EMPLOYER';
 export const FETCHING_COMPANYARRAY_SUCCESS = 'FETCHING_COMPANYARRAY_SUCCESS'
 export const FETCHING_USERARRAY_SUCCESS = 'FETCHING_USERARRAY_SUCCESS';
+export const LOGOUT = 'LOGOUT'
 
 export const newEmployee = (thing) => dispatch => {
     dispatch({ type: FETCHING_START })
@@ -146,3 +147,8 @@ export const deleteCompany = (id) => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
             })
 } 
+export const logout = () => dispatch => {
+    dispatch ({ type: LOGOUT })
+    localStorage.clear('token')
+    history.push('/')
+}

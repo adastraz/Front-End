@@ -1,16 +1,16 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink
-  } from 'reactstrap';
- import { Link } from 'react-router-dom'
- import { connect } from "react-redux"
-
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from 'reactstrap';
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { logout } from '../../actions'
 
 
 function EmployerHeader(props) {
@@ -26,13 +26,18 @@ function EmployerHeader(props) {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto Nav" navbar>
             <NavItem>
-              <NavLink >
-                  <Link className="navLink" to={`/companies/${props.user.id}`}>My Profile</Link>
+              <NavLink>
+                <Link className='navLink' to={`/companies/${props.user.id}`}>My Profile</Link>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink>
-                  <Link className="navLink" to="/list">Start Matching</Link>
+                <Link className='navLink' to="/list">Start Matching</Link>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                <Link className='navLink' onClick={props.logout}>Logout</Link>
               </NavLink>
             </NavItem>
           </Nav>
@@ -50,4 +55,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {})(EmployerHeader);
+export default connect(mapStateToProps, { logout })(EmployerHeader);
