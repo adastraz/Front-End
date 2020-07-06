@@ -17,7 +17,20 @@ export const newEmployee = (thing) => dispatch => {
         .post('https://dry-mesa-00229.herokuapp.com/api/register/user', thing)
             .then(res => {
                 dispatch ({ type: EMPLOYEE, payload: res.data })
-                history.push(`/signin`)
+                axios
+                    .post('https://dry-mesa-00229.herokuapp.com/api/login', thing)
+                        .then(res => {
+                            dispatch({ type: LOGIN, payload: res.data})
+                            localStorage.setItem('token', res.data.token)
+                            if (typeof res.data.company != "undefined") {
+                                history.push(`/companies/${res.data.company.id}`)
+                            }
+                            history.push(`/users/${res.data.user.id}`)
+                        })
+                        .catch(err => {
+                            dispatch({ type: FETCHING_ERROR, payload: err })
+                            console.log('tyler look here ya seeeee', err)
+                        })
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err })
@@ -30,7 +43,20 @@ export const newEmployer = (thing) => dispatch => {
         .post('https://dry-mesa-00229.herokuapp.com/api/register/company', thing)
             .then(res => {
                 dispatch ({ type: EMPLOYER, payload: res.data })
-                history.push(`/signin`)
+                axios
+                    .post('https://dry-mesa-00229.herokuapp.com/api/login', thing)
+                        .then(res => {
+                            dispatch({ type: LOGIN, payload: res.data})
+                            localStorage.setItem('token', res.data.token)
+                            if (typeof res.data.company != "undefined") {
+                                history.push(`/companies/${res.data.company.id}`)
+                            }
+                            history.push(`/users/${res.data.user.id}`)
+                        })
+                        .catch(err => {
+                            dispatch({ type: FETCHING_ERROR, payload: err })
+                            console.log('tyler look here ya seeeee', err)
+                        })
             })
             .catch(err => {
                 dispatch ({ type: FETCHING_ERROR, payload: err })
@@ -51,7 +77,7 @@ export const login = (thing) => dispatch => {
             })
             .catch(err => {
                 dispatch({ type: FETCHING_ERROR, payload: err })
-                console.log('tyler dumbass look here ya seeeee', err)
+                console.log('tyler look here ya seeeee', err)
             })
 }
 export const fetchUser = (id) => dispatch => {

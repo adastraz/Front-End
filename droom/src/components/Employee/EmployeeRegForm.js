@@ -74,7 +74,7 @@ const EmployeeRegForm = props => {
                             />
                         </FormGroup>
                         <FormGroup>
-                            <Label htmlFor="imgUrl">Image: </Label>
+                            <Label htmlFor="imgUrl">Image (link): </Label>
                             <Input 
                                 id="imgUrl"
                                 type="text"
@@ -84,6 +84,9 @@ const EmployeeRegForm = props => {
                             />
                         </FormGroup>
                         <Button className="signButton" type="submit">Create Account</Button>
+                        {
+                            props.isLoading ? (<p>Loading...</p>) : ''
+                        }
                     </Form>
                 </div>
             </div>

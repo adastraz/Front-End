@@ -78,7 +78,7 @@ const EmployerRegForm = props => {
                             onChange={handleChanges}
                             value={employerUser.mission_statement}
                             />
-                        <Label htmlFor="imgUrl">Image: </Label>
+                        <Label htmlFor="imgUrl">Image (link): </Label>
                         <Input 
                             id="imgUrl"
                             type="text"
@@ -95,6 +95,9 @@ const EmployerRegForm = props => {
                             value={employerUser.openPositions}
                             />
                         <Button className="signButton" type="submit">Create Account</Button>
+                        {
+                            props.isLoading ? (<p>Loading...</p>) : ''
+                        }
                     </Form>
                 </div>
             </div>

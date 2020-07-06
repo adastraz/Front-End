@@ -69,7 +69,7 @@ function SignUp(props) {
                             value={user.password}
                             />
                     </FormGroup>
-                    <p>* 8-20 total characters | min. 1 special character | min. 1 digit | min. 1 letter</p>
+                    <p className='incorrect'>* 8-20 total characters | min. 1 special character | min. 1 digit | min. 1 letter</p>
                     <FormGroup check>
                         <Label check htmlFor="user_type">
                         <Input

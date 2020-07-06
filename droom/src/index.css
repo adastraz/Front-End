@@ -63,6 +63,11 @@ body {
     margin-right: 2rem
 }
 
+.incorrect{
+    color: red;
+    margin-top: 10px
+}
+
 
 @media (max-width: 600px) {
 
