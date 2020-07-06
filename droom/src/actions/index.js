@@ -7,7 +7,8 @@ export const EMPLOYEE = 'EMPLOYEE';
 export const LOGIN = 'LOGIN';
 export const EMPLOYER = 'EMPLOYER';
 export const FETCHING_COMPANYARRAY_SUCCESS = 'FETCHING_COMPANYARRAY_SUCCESS'
-export const FETCHING_USERARRAY_SUCCESS = 'FETCHING_USERARRAY_SUCCESS';
+export const FETCHING_USERARRAY_SUCCESS = 'FETCHING_USERARRAY_SUCCESS'
+export const CLEAR_ERROR = 'CLEAR_ERROR'
 export const LOGOUT = 'LOGOUT'
 
 export const newEmployee = (thing) => dispatch => {
@@ -16,10 +17,23 @@ export const newEmployee = (thing) => dispatch => {
         .post('https://dry-mesa-00229.herokuapp.com/api/register/user', thing)
             .then(res => {
                 dispatch ({ type: EMPLOYEE, payload: res.data })
-                history.push(`/signin`)
+                axios
+                    .post('https://dry-mesa-00229.herokuapp.com/api/login', thing)
+                        .then(res => {
+                            dispatch({ type: LOGIN, payload: res.data})
+                            localStorage.setItem('token', res.data.token)
+                            if (typeof res.data.company != "undefined") {
+                                history.push(`/companies/${res.data.company.id}`)
+                            }
+                            history.push(`/users/${res.data.user.id}`)
+                        })
+                        .catch(err => {
+                            dispatch({ type: FETCHING_ERROR, payload: err })
+                            console.log('tyler look here ya seeeee', err)
+                        })
             })
             .catch(err => {
-                dispatch ({ type: FETCHING_ERROR, payload: err.data })
+                dispatch ({ type: FETCHING_ERROR, payload: err })
             })
 }
 export const newEmployer = (thing) => dispatch => {
@@ -29,16 +43,29 @@ export const newEmployer = (thing) => dispatch => {
         .post('https://dry-mesa-00229.herokuapp.com/api/register/company', thing)
             .then(res => {
                 dispatch ({ type: EMPLOYER, payload: res.data })
-                history.push(`/signin`)
+                axios
+                    .post('https://dry-mesa-00229.herokuapp.com/api/login', thing)
+                        .then(res => {
+                            dispatch({ type: LOGIN, payload: res.data})
+                            localStorage.setItem('token', res.data.token)
+                            if (typeof res.data.company != "undefined") {
+                                history.push(`/companies/${res.data.company.id}`)
+                            }
+                            history.push(`/users/${res.data.user.id}`)
+                        })
+                        .catch(err => {
+                            dispatch({ type: FETCHING_ERROR, payload: err })
+                            console.log('tyler look here ya seeeee', err)
+                        })
             })
             .catch(err => {
-                dispatch ({ type: FETCHING_ERROR, payload: err.data })
+                dispatch ({ type: FETCHING_ERROR, payload: err })
             })
 }
 export const login = (thing) => dispatch => {
-     console.log('LOGIN RESPONSE', thing)
-     dispatch ({ type: FETCHING_START })
-     axios
+    console.log('LOGIN RESPONSE', thing)
+    dispatch ({ type: FETCHING_START })
+    axios
         .post('https://dry-mesa-00229.herokuapp.com/api/login', thing)
             .then(res => {
                 dispatch({ type: LOGIN, payload: res.data})
@@ -49,9 +76,10 @@ export const login = (thing) => dispatch => {
                 history.push(`/users/${res.data.user.id}`)
             })
             .catch(err => {
-                dispatch({ type: FETCHING_ERROR, payload: err.data })
+                dispatch({ type: FETCHING_ERROR, payload: err })
+                console.log('tyler look here ya seeeee', err)
             })
- }
+}
 export const fetchUser = (id) => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth()
@@ -60,7 +88,7 @@ export const fetchUser = (id) => dispatch => {
                 dispatch({ type: EMPLOYEE, payload: res.data})
             })
             .catch(err => {
-                dispatch ({ type: FETCHING_ERROR, payload: err.response})
+                dispatch ({ type: FETCHING_ERROR, payload: err })
             })
 }
 export const fetchCompany= (id) => dispatch => {
@@ -71,7 +99,7 @@ export const fetchCompany= (id) => dispatch => {
                 dispatch({ type: EMPLOYER, payload: res.data})
             })
             .catch(err => {
-                dispatch ({ type: FETCHING_ERROR, payload: err.response})
+                dispatch ({ type: FETCHING_ERROR, payload: err })
             })
 }
 export const fetchCompanyArray = () => dispatch => {
@@ -82,7 +110,7 @@ export const fetchCompanyArray = () => dispatch => {
                 dispatch({ type: FETCHING_COMPANYARRAY_SUCCESS, payload: res.data})
             })
             .catch(err => {
-                dispatch ({ type: FETCHING_ERROR, payload: err.response})
+                dispatch ({ type: FETCHING_ERROR, payload: err })
             })
 }
 export const fetchUserArray = () => dispatch => {
@@ -90,11 +118,10 @@ export const fetchUserArray = () => dispatch => {
     axiosWithAuth()
         .get(`/api/users`)
             .then(res => {
-               
                 dispatch({ type: FETCHING_USERARRAY_SUCCESS, payload: res.data})
             })
             .catch(err => {
-                dispatch ({ type: FETCHING_ERROR, payload: err.response})
+                dispatch ({ type: FETCHING_ERROR, payload: err })
             })
 }
 export const editUser = (user, id) => dispatch => {
@@ -107,7 +134,7 @@ export const editUser = (user, id) => dispatch => {
                 dispatch({ type: EMPLOYEE, payload: res.data})
             })
             .catch(err => {
-                dispatch ({ type: FETCHING_ERROR, payload: err.response})
+                dispatch ({ type: FETCHING_ERROR, payload: err })
             })
 }
 export const editCompany = (company, id) => dispatch => {
@@ -120,7 +147,7 @@ export const editCompany = (company, id) => dispatch => {
                 dispatch({ type: EMPLOYER, payload: res.data})
             })
             .catch(err => {
-                dispatch ({ type: FETCHING_ERROR, payload: err.response})
+                dispatch ({ type: FETCHING_ERROR, payload: err })
             })
 }
 export const deleteUser = (id) => dispatch => {
@@ -132,7 +159,7 @@ export const deleteUser = (id) => dispatch => {
                 localStorage.clear('token')
             })
             .catch(err => {
-                dispatch ({ type: FETCHING_ERROR, payload: err.response})
+                dispatch ({ type: FETCHING_ERROR, payload: err })
             })
 } 
 export const deleteCompany = (id) => dispatch => {
@@ -147,6 +174,10 @@ export const deleteCompany = (id) => dispatch => {
                 dispatch ({ type: FETCHING_ERROR, payload: err.response})
             })
 } 
+export const clearError = () => dispatch => {
+    dispatch ({ type: CLEAR_ERROR })
+    history.push('/signup')
+}
 export const logout = () => dispatch => {
     dispatch ({ type: LOGOUT })
     localStorage.clear('token')

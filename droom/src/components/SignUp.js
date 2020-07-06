@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux'
 import HeaderWelcome from './HeaderWelcome'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
@@ -35,6 +35,10 @@ function SignUp(props) {
         e.preventDefault();
     }
 
+
+    useEffect (() => {
+
+    }, props.error)
     return (
         <div>
         <HeaderWelcome />    
@@ -65,6 +69,7 @@ function SignUp(props) {
                             value={user.password}
                             />
                     </FormGroup>
+                    <p className='incorrect'>* 8-20 total characters | min. 1 special character | min. 1 digit | min. 1 letter</p>
                     <FormGroup check>
                         <Label check htmlFor="user_type">
                         <Input

@@ -6,10 +6,11 @@ import {
     FETCHING_COMPANYARRAY_SUCCESS,
     FETCHING_USERARRAY_SUCCESS,
     LOGIN,
-    LOGOUT,
-  } from '../actions'
+    CLEAR_ERROR,
+    LOGOUT
+} from '../actions'
 
-  const initialState = {
+const initialState = {
     isLoading: false,
     user: {},
     array:[],
@@ -74,6 +75,11 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 array: action.payload,
+                error: null
+            }
+        case CLEAR_ERROR:
+            return{
+                ...state,
                 error: null
             }
         default:

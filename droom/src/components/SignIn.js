@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux'
 import { login } from '../actions'
 import { Link } from 'react-router-dom'
@@ -22,7 +22,7 @@ function SignIn(props) {
 
     //on submit
     const submitForm = e => {
-        e.preventDefault();
+        e.preventDefault()
         props.login(user)
         //react 2 handle posting/etc
     }
@@ -61,7 +61,12 @@ function SignIn(props) {
                     <Button className="signButton" type="submit">Sign In</Button>
 
                     <Link className="noAccountLink" to='/signup' >I don't have an account</Link> 
-
+                    {
+                        props.error != null ? (<p className='incorrect'>Incorrect username or password</p>) : ''
+                    }
+                    {
+                        props.isLoading ? (<p>Loading...</p>) : ''
+                    }
                 </Form>
             </div>
         </div>

@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import {connect} from 'react-redux'
-import {newEmployee} from '../../actions'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { newEmployee, clearError } from '../../actions'
 import HeaderWelcome from '../HeaderWelcome'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
@@ -11,23 +11,28 @@ const EmployeeRegForm = props => {
         industry: "",
         experience: "",
         imgUrl: ""
-    });
+    })
 
     const handleChanges = e => {
         console.log("User handle changes: ", employeeUser);
         setEmployeeUser({
             ...employeeUser,
             [e.target.name]: e.target.value
-        });
-    };
-
-    const submitForm = e => {
-        e.preventDefault();
-        console.log("User to submit: ", employeeUser);
-        props.newEmployee({...employeeUser, ...props.location.state})
+        })
     }
 
-    console.log('isloading', props.isLoading)
+    const submitForm = e => {
+        e.preventDefault()
+        console.log("User to submit: ", employeeUser)
+        props.newEmployee({...employeeUser, ...props.location.state}) 
+    }
+    useEffect (() => {
+        if(props.error != null){
+            props.clearError()
+        }
+        console.log('look herer for error props', props.error)
+    }, props.error)
+
     return (
         <div>
             <HeaderWelcome />
@@ -46,7 +51,7 @@ const EmployeeRegForm = props => {
                                 name="name"
                                 onChange={handleChanges}
                                 value={employeeUser.name}
-                                />
+                            />
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="industry">Industry: </Label>
@@ -66,19 +71,22 @@ const EmployeeRegForm = props => {
                                 name="experience"
                                 onChange={handleChanges}
                                 value={employeeUser.experience}
-                                />
+                            />
                         </FormGroup>
                         <FormGroup>
-                            <Label htmlFor="imgUrl">Image: </Label>
+                            <Label htmlFor="imgUrl">Image (link): </Label>
                             <Input 
                                 id="imgUrl"
                                 type="text"
                                 name="imgUrl"
                                 onChange={handleChanges}
                                 value={employeeUser.imgUrl}
-                                />
+                            />
                         </FormGroup>
                         <Button className="signButton" type="submit">Create Account</Button>
+                        {
+                            props.isLoading ? (<p>Loading...</p>) : ''
+                        }
                     </Form>
                 </div>
             </div>
@@ -94,4 +102,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {newEmployee})(EmployeeRegForm)
+export default connect(mapStateToProps, { newEmployee, clearError })(EmployeeRegForm)

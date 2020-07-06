@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { newEmployer } from '../../actions'
+import { newEmployer, clearError } from '../../actions'
 import HeaderWelcome from '../HeaderWelcome'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
@@ -13,21 +13,28 @@ const EmployerRegForm = props => {
         mission_statement: "",
         imgUrl: "",
         openPositions: ""
-    });
+    })
 
     const handleChanges = event => {
         console.log("User: ", employerUser);
         setEmployerUser({
             ...employerUser,
             [event.target.name]: event.target.value
-        });
-    };
+        })
+    }
 
     const submitForm = event => {
         event.preventDefault();
         props.newEmployer({...employerUser, ...props.location.state})
         console.log("User to submit: ", employerUser);
     }
+
+    useEffect(() => {
+        if(props.error != null){
+            props.clearError()
+        }
+        console.log('look herer for error props', props.error)
+    }, [props.error])
 
     return (
         <div>
@@ -71,7 +78,7 @@ const EmployerRegForm = props => {
                             onChange={handleChanges}
                             value={employerUser.mission_statement}
                             />
-                        <Label htmlFor="imgUrl">Image: </Label>
+                        <Label htmlFor="imgUrl">Image (link): </Label>
                         <Input 
                             id="imgUrl"
                             type="text"
@@ -88,6 +95,9 @@ const EmployerRegForm = props => {
                             value={employerUser.openPositions}
                             />
                         <Button className="signButton" type="submit">Create Account</Button>
+                        {
+                            props.isLoading ? (<p>Loading...</p>) : ''
+                        }
                     </Form>
                 </div>
             </div>
@@ -103,4 +113,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect (mapStateToProps, {newEmployer})(EmployerRegForm)
+export default connect (mapStateToProps, { newEmployer, clearError })(EmployerRegForm)
