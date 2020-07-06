@@ -11,19 +11,19 @@ const EmployeeRegForm = props => {
         industry: "",
         experience: "",
         imgUrl: ""
-    });
+    })
 
     const handleChanges = e => {
         console.log("User handle changes: ", employeeUser);
         setEmployeeUser({
             ...employeeUser,
             [e.target.name]: e.target.value
-        });
-    };
+        })
+    }
 
     const submitForm = e => {
-        e.preventDefault();
-        console.log("User to submit: ", employeeUser);
+        e.preventDefault()
+        console.log("User to submit: ", employeeUser)
         props.newEmployee({...employeeUser, ...props.location.state}) 
     }
     useEffect (() => {
