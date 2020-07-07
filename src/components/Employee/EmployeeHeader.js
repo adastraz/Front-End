@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState} from "react"
 import {
   Collapse,
   Navbar,
@@ -7,17 +7,17 @@ import {
   Nav,
   NavItem,
   NavLink
-} from 'reactstrap';
+} from 'reactstrap'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../../actions'
 
 
 function EmployeeHeader(props) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
   
-  const toggle = () => setIsOpen(!isOpen);
-      
+  const toggle = () => setIsOpen(!isOpen)
+
   return (
     <>
       <Navbar className="Navbar" light expand="">
@@ -44,7 +44,7 @@ function EmployeeHeader(props) {
         </Collapse>
       </Navbar>
     </>
-  );
+  )
 }
 
 const mapStateToProps = state => {
@@ -55,4 +55,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {logout})(EmployeeHeader);
+export default connect(mapStateToProps, { logout })(EmployeeHeader)

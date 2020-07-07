@@ -129,7 +129,7 @@ export const editUser = (user, id) => dispatch => {
     console.log("EDIT USER, user", user)
     axiosWithAuth()
         .put(`/api/users/${id}`, user)
-            .then( res => {
+            .then(res => {
                 console.log(res)
                 dispatch({ type: EMPLOYEE, payload: res.data})
             })
@@ -142,7 +142,7 @@ export const editCompany = (company, id) => dispatch => {
     console.log("EDIT USER, user", company)
     axiosWithAuth()
         .put(`/api/companies/${id}`, company)
-            .then( res => {
+            .then(res => {
                 console.log(res)
                 dispatch({ type: EMPLOYER, payload: res.data})
             })
@@ -154,7 +154,7 @@ export const deleteUser = (id) => dispatch => {
     dispatch({ type: FETCHING_START})
     axiosWithAuth()
         .delete(`/api/users/${id}`)
-            .then( res => {
+            .then(res => {
                 history.push('/')
                 localStorage.clear('token')
             })
@@ -166,7 +166,7 @@ export const deleteCompany = (id) => dispatch => {
     dispatch({ type: FETCHING_START})
     axiosWithAuth()
         .delete(`/api/companies/${id}`)
-            .then( res => {
+            .then(res => {
                 history.push('/')
                 localStorage.clear('token')
             })
@@ -177,6 +177,7 @@ export const deleteCompany = (id) => dispatch => {
 export const clearError = () => dispatch => {
     dispatch ({ type: CLEAR_ERROR })
     history.push('/signup')
+    alert('Unsucessful signup, please make sure you met the password requirements, or use another username')
 }
 export const logout = () => dispatch => {
     dispatch ({ type: LOGOUT })

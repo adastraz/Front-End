@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 import {Link} from "react-router-dom"
 import { Card, CardTitle, Button} from 'reactstrap'
-import HeaderWelcome from "./HeaderWelcome";
+import HeaderWelcome from "./HeaderWelcome"
 
 function Welcome() {
   return (

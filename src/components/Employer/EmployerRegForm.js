@@ -16,7 +16,7 @@ const EmployerRegForm = props => {
     })
 
     const handleChanges = event => {
-        console.log("User: ", employerUser);
+        console.log("User: ", employerUser)
         setEmployerUser({
             ...employerUser,
             [event.target.name]: event.target.value

@@ -7,28 +7,28 @@ import {
     CarouselItem,
     CarouselControl,
     CarouselIndicators
-} from 'reactstrap';
+} from 'reactstrap'
 import EmployerHeader from './EmployerHeader'
 
 const EmployerList = props => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [animating, setAnimating] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [animating, setAnimating] = useState(false)
 
     const next = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === props.array.length - 1 ? 0 : activeIndex + 1;
-        setActiveIndex(nextIndex);
+        if (animating) return
+        const nextIndex = activeIndex === props.array.length - 1 ? 0 : activeIndex + 1
+        setActiveIndex(nextIndex)
     }
-    
+
     const previous = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === 0 ? props.array.length - 1 : activeIndex - 1;
-        setActiveIndex(nextIndex);
+        if (animating) return
+        const nextIndex = activeIndex === 0 ? props.array.length - 1 : activeIndex - 1
+        setActiveIndex(nextIndex)
     }
-    
+
     const goToIndex = (newIndex) => {
-        if (animating) return;
-        setActiveIndex(newIndex);
+        if (animating) return
+        setActiveIndex(newIndex)
     }
 
     const slides = props.array.map((item) => {
@@ -40,13 +40,15 @@ const EmployerList = props => {
             >
                 <EmployeeCard item={item} />
             </CarouselItem>
-        );
-      });
+        )
+    })
 
     useEffect(() => {
         props.fetchUserArray()
     },[])
+
     console.log(props.array)
+
     return(
         <>
             <EmployerHeader />
@@ -74,4 +76,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchUserArray})(EmployerList)
+export default connect(mapStateToProps, { fetchUserArray })(EmployerList)

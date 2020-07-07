@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState} from "react"
 
 function Footer() {
     return (
@@ -37,7 +37,7 @@ function Footer() {
                 <p>{`Terms & Conditions`}</p>
             </div>
         </>
-    );
+    )
 }
 
 export default Footer
