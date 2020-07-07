@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 import {
   Collapse,
   Navbar,
@@ -14,9 +14,9 @@ import { logout } from '../../actions'
 
 
 function EmployerHeader(props) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <div>
@@ -44,7 +44,7 @@ function EmployerHeader(props) {
         </Collapse>
       </Navbar>
     </div>
-  );
+  )
 }
 
 const mapStateToProps = state => {
@@ -55,4 +55,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { logout })(EmployerHeader);
+export default connect(mapStateToProps, { logout })(EmployerHeader)

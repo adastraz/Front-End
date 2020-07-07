@@ -71,7 +71,7 @@ function SignIn(props) {
             </div>
         </div>
     </div>
-    );
+    )
 }
 
 const mapStateToProps = state => {
@@ -82,4 +82,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {login})(SignIn)
+export default connect(mapStateToProps, { login })(SignIn)

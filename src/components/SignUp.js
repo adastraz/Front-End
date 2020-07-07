@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 import { connect } from 'react-redux'
 import HeaderWelcome from './HeaderWelcome'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
@@ -9,36 +9,32 @@ function SignUp(props) {
         username: '',
         password: '',
         user_type: false
-    });
+    })
 
     //handle any changes made to inputs username/password in the form
     const handleChanges = event => {
-        console.log("User handle changes: ", user);
+        console.log("User handle changes: ", user)
         setUser({
             ...user,
             [event.target.name]: event.target.value
-        });
-    };
+        })
+    }
 
     //handle changes made to employer checkbox in the form
     const handleCheckboxChanges = event => {
-        console.log("User checkbox: ", user);
+        console.log("User checkbox: ", user)
         setUser({
             ...user,
             [event.target.name]: event.target.checked
-        });
+        })
     }
 
 
     //on submit
     const submitForm = e => {
-        e.preventDefault();
+        e.preventDefault()
     }
 
-
-    useEffect (() => {
-
-    }, props.error)
     return (
         <div>
         <HeaderWelcome />    
@@ -92,7 +88,7 @@ function SignUp(props) {
             </div>
         </div>
     </div>
-    );
+    )
 }
 
 const mapStateToProps = state => {

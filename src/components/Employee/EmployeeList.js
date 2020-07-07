@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react'
 import {fetchCompanyArray} from '../../actions'
 import {connect} from 'react-redux'
 import EmployerCard from '../Employer/EmployerCard'
@@ -7,29 +7,29 @@ import {
     CarouselItem,
     CarouselControl,
     CarouselIndicators
-  } from 'reactstrap';
+} from 'reactstrap'
 import EmployeeHeader from './EmployeeHeader'
 
 const EmployeeList = props => {
 
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [animating, setAnimating] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [animating, setAnimating] = useState(false)
 
     const next = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === props.array.length - 1 ? 0 : activeIndex + 1;
-        setActiveIndex(nextIndex);
+        if (animating) return
+        const nextIndex = activeIndex === props.array.length - 1 ? 0 : activeIndex + 1
+        setActiveIndex(nextIndex)
     }
-    
+
     const previous = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === 0 ? props.array.length - 1 : activeIndex - 1;
-        setActiveIndex(nextIndex);
+        if (animating) return
+        const nextIndex = activeIndex === 0 ? props.array.length - 1 : activeIndex - 1
+        setActiveIndex(nextIndex)
     }
-    
+
     const goToIndex = (newIndex) => {
-        if (animating) return;
-        setActiveIndex(newIndex);
+        if (animating) return
+        setActiveIndex(newIndex)
     }
 
     const slides = props.array.map((item) => {
@@ -78,4 +78,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchCompanyArray})(EmployeeList)
+export default connect(mapStateToProps, { fetchCompanyArray })(EmployeeList)

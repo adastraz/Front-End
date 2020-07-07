@@ -8,27 +8,27 @@ import EmployeeHeader from './EmployeeHeader'
 
 const EmployeeProfile = props => {
     console.log("I AM A PROPS FROM EMPLOYEE PROFILE", props.user)
-   
+
     const [editing, setEditing] = useState(false)
     const [userToEdit, setUserToEdit] = useState({})
     
     
-    let {id} = useParams();
-    
+    let {id} = useParams()
+
     useEffect(() => {
-        props.fetchUser(id);
+        props.fetchUser(id)
     }, [])
-    
+
     const userEdit = () => {
-        setEditing(true);
-    };
-    
+        setEditing(true)
+    }
+
     const saveEdit = e => {
-        e.preventDefault();
+        e.preventDefault()
         props.editUser(userToEdit, id)
         setEditing(false)
     }
-    
+
     const handleChange = e => {
         setUserToEdit({...userToEdit, [e.target.name]: e.target.value})
     }
@@ -111,4 +111,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {deleteUser, fetchUser, editUser})(EmployeeProfile)
+export default connect(mapStateToProps, { deleteUser, fetchUser, editUser })(EmployeeProfile)
