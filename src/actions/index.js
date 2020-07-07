@@ -177,6 +177,7 @@ export const deleteCompany = (id) => dispatch => {
 export const clearError = () => dispatch => {
     dispatch ({ type: CLEAR_ERROR })
     history.push('/signup')
+    alert('Unsucessful signup, please make sure you met the password requirements, or use another username')
 }
 export const logout = () => dispatch => {
     dispatch ({ type: LOGOUT })
