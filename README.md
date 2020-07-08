@@ -17,7 +17,7 @@ Droom is created with :
 *Bootstrap 4.4.1
 *Jest 4.2.4
 
-##Setup
+## Setup
 To run this project, install it locally using yarn :
 
 ```
