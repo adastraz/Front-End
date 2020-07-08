@@ -10,12 +10,12 @@ Droom is essentially the Tinder of the job search. Create one of two different u
 
 ## Technologies
 Droom is created with :
-*React 16.12.0
-*Redux 4.0.5
-*react-router-dom 5.1.2
-*axios 0.19.2
-*Bootstrap 4.4.1
-*Jest 4.2.4
+* React 16.12.0
+* Redux 4.0.5
+* react-router-dom 5.1.2
+* axios 0.19.2
+* Bootstrap 4.4.1
+* Jest 4.2.4
 
 ## Setup
 To run this project, install it locally using yarn :
