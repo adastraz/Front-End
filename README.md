@@ -18,7 +18,7 @@ Droom is created with :
 *Jest 4.2.4
 
 ##Setup
-To run this project, install it locally using yarn:
+To run this project, install it locally using yarn :
 
 ```
 $ cd droom/
