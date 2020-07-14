@@ -1,5 +1,7 @@
 This app is hosted by Amplify (on a seperate repository due to file structure)! : https://master.d1bur35z3z2y1d.amplifyapp.com/
 
+Wireframe designs: https://www.figma.com/file/4k6LDAFoTyywpKRQSe3uYs/Droom-Wire-Frame?node-id=0%3A1
+
 ## Table of Contents
 * [General Information](#general-information)
 * [Technologies](#technologies)
